@@ -1,7 +1,7 @@
 <div class="container-fluid w-100 m-0 p-0">
   <div class="row">
     <div class="col-3 text-center">
-      <img class="logo-ba" src="assets/logo-ba.png" alt="">
+      <img class="logo-ba" src="assets/logo-ba.png" alt="Logo BAGPS">
     </div>
 
     <div class="col-1">
@@ -50,20 +50,20 @@
       <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-phone pe-2"></i>1900 6464</button>
     </div>
 
-    <div class="col-1">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="selected-language" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            {{ selectedLanguage }}
+    <div class="col-1 ">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name }}" class="icon-dropdown-menu me-2">
+        {{ selectedLanguage.name }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li *ngFor="let language of languages">
+          <a class="dropdown-item" (click)="changeLanguage(language)">
+            <img [src]="language.icon" alt="{{ language.name }}" class="icon-dropdown-item me-2">
+            {{ language.name }}
           </a>
-          <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="selected-language">
-            <li><a class="dropdown-item" href="#" (click)="changeLanguage('Tiếng Việt')">Tiếng Việt</a></li>
-            <li><a class="dropdown-item" href="#" (click)="changeLanguage('Tiếng Anh')">Tiếng Anh</a></li>
-          </ul>
         </li>
       </ul>
     </div>
-
   </div>
 </div>

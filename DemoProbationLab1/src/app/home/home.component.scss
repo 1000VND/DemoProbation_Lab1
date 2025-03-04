@@ -1,0 +1,112 @@
+/* Logo & QR Code */
+.logoba-login,
+.qr-install-app {
+    width: 10rem;
+}
+
+/* Form đăng nhập */
+.login-card {
+    width: 100%;
+    max-width: 350px;
+    /* Giới hạn form để không bị rộng quá */
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Carousel image */
+.img-custom {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Input styling */
+.input-custom {
+    height: 100%;
+    border-radius: 1.5rem;
+    background: #f8f9fa;
+}
+
+span.input-group-text {
+    border: none;
+    background: transparent;
+}
+
+input.input-login-form {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Toggle password icon */
+.toggle-password {
+    cursor: pointer;
+}
+
+
+/////////////////////////////////////////////////carousel
+.carousel-container {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0 8px 16px #dce1e1;
+}
+
+.carousel-container img {
+    display: none;
+    border-radius: 15px;
+}
+
+.carousel-container img.image-active {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+// dots/indicator
+.carousel-dot-container {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    background-color: #bb1629;
+    border-radius: 50%;
+    display: inline-block;
+    transition: opacity 0.6s ease;
+    opacity: 0.5;
+}
+
+.active,
+.dot:hover {
+    opacity: 1;
+}
+
+.fade-custom {
+    animation-name: fade-custom;
+    animation-duration: 1.5s ;
+}
+
+@keyframes fade-custom {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
