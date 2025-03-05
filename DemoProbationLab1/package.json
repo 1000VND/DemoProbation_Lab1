@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:prod": "ng build --configuration=production --base-href=/demolab1/"
+    "build:prod": "ng build --configuration=production --base-href=/demo-probation-lab1/"
   },
   "private": true,
   "dependencies": {
