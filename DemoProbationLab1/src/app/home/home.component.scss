@@ -1,21 +1,47 @@
-/* Logo & QR Code */
+// Logo & QR Code
 .logoba-login,
 .qr-install-app {
     width: 10rem;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
-/* Form đăng nhập */
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Form đăng nhập
 .login-card {
     width: 100%;
+    // Giới hạn form để không bị rộng quá
     max-width: 350px;
-    /* Giới hạn form để không bị rộng quá */
     padding: 20px;
     border-radius: 10px;
     background: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: auto;
 }
 
-/* Carousel image */
+// Điều chỉnh layout khi màn hình nhỏ
+@media (max-width: 768px) {
+    .login-card {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    // Giảm kích thước logo và QR trên mobile
+    .logoba-login,
+    .qr-install-app {
+        width: 8rem;
+    }
+}
+
+// Carousel image 
 .img-custom {
     width: 100%;
     max-height: 80vh;
@@ -23,7 +49,7 @@
     object-position: center center;
 }
 
-/* Input styling */
+// Input
 .input-custom {
     height: 100%;
     border-radius: 1.5rem;
@@ -41,13 +67,13 @@ input.input-login-form {
     box-shadow: none;
 }
 
-/* Toggle password icon */
+// Toggle password icon
 .toggle-password {
     cursor: pointer;
 }
 
 
-/////////////////////////////////////////////////carousel
+// Carousel
 .carousel-container {
     position: relative;
     text-align: center;
@@ -56,13 +82,10 @@ input.input-login-form {
 
 .carousel-container img {
     display: none;
-    // border-radius: 15px;
-
     width: 100%;
-    /* Ảnh co theo kích thước parent */
     height: auto;
+    // Không bị méo
     object-fit: cover;
-    /* Không bị méo */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -73,25 +96,22 @@ input.input-login-form {
     object-fit: contain;
 }
 
-/* Khi zoom out, ảnh sẽ nhỏ theo trang */
+// Khi zoom out, ảnh sẽ nhỏ theo trang 
 @media (max-width: 1200px) {
     .carousel-container img {
         max-height: 60vh;
-        /* Giảm chiều cao ảnh */
     }
 }
 
 @media (max-width: 992px) {
     .carousel-container img {
         max-height: 50vh;
-        /* Giảm chiều cao ảnh */
     }
 }
 
 @media (max-width: 768px) {
     .carousel-container img {
         max-height: 40vh;
-        /* Giảm chiều cao ảnh */
     }
 }
 
@@ -136,5 +156,57 @@ input.input-login-form {
 
     to {
         opacity: 1;
+    }
+}
+
+.carousel-content {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0;
+    border-radius: 10px;
+    color: white;
+    z-index: 2;
+}
+
+/* Tiêu đề tin tức */
+.carousel-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.carousel-slide.image-active {
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .carousel-content {
+        left: 5%;
+        bottom: 5%;
+        max-width: 80%;
+    }
+
+    .carousel-title {
+        font-size: 1.5rem;
+    }
+
+    .carousel-description {
+        font-size: 0.9rem;
+    }
+
+    .carousel-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
     }
 }

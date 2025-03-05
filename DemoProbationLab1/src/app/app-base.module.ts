@@ -101,6 +101,8 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { DrawerModule } from 'primeng/drawer';
+import { TranslateModule } from '@ngx-translate/core';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -208,6 +210,8 @@ import { DrawerModule } from 'primeng/drawer';
     AutoFocusModule,
     OverlayBadgeModule,
     CarouselModule,
+    TranslateModule,
+    ToastrModule.forRoot()
   ],
   exports: [
     TabsModule,
@@ -313,6 +317,8 @@ import { DrawerModule } from 'primeng/drawer';
     AutoFocusModule,
     OverlayBadgeModule,
     CarouselModule,
+    TranslateModule,
+    ToastrModule
   ],
 })
-export class PrimengModule { }
+export class AppBaseModule { }

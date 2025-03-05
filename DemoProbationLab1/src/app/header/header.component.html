@@ -1,63 +1,94 @@
-<!-- <div class="container-fluid w-100 m-0 p-0">
+<!-- Hiển thị khi ở màn hình to -->
+<div class="d-none d-md-block container-fluid w-100 m-0 p-0">
   <div class="row">
-    <div class="d-none d-md-block text-center col-2">
+    <div class=" text-center col-2">
       <img class="logo-ba" src="assets/logo-ba.png" alt="Logo BAGPS">
     </div>
 
     <div class="grid-container col-8">
       <div class="grid-item">
         <a href="https://bagps.vn/">
-          Trang chủ
+          {{'Home' | translate}}
         </a>
       </div>
 
       <div class="grid-item">
         <a href="https://bagps.vn/san-pham-va-giai-phap">
-          Sản phẩm dịch vụ
+          {{'ServiceProducts' | translate}}
         </a>
       </div>
 
       <div class="grid-item">
         <a href="https://bagps.vn/tin-tuc-c10">
-          Tin tức
+          {{'News' | translate}}
         </a>
       </div>
 
       <div class="grid-item">
         <a href="https://bagps.vn/huong-dan-dong-phi-dich-vu-ba-gps-d610">
-          Đóng phí
+          {{'PayFees' | translate}}
         </a>
       </div>
 
       <div class="grid-item">
         <a href="https://badoc.bagroup.vn/x/SAGhBg">
-          Hướng dẫn
+          {{'Instruct' | translate}}
         </a>
       </div>
 
       <div class="grid-item">
         <a href="https://bagps.vn/mang-luoi">
-          Mạng lưới
+          {{'Network' | translate}}
         </a>
       </div>
 
       <div class="grid-item">
         <a href="https://bagps.vn/gioi-thieu/">
-          Về chúng tôi
+          {{'AboutUs' | translate}}
         </a>
       </div>
     </div>
 
     <div class="grid-item col-1">
-      <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-phone pe-2"></i>1900 6464</button>
+      <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
+        <button type="button" class="hotline-btn btn btn-outline-primary">
+          <i class="fa-solid fa-phone pe-2"></i>
+          1900 6464
+        </button>
+      </a>
     </div>
 
     <div class="grid-item dropdown language-dropdown col-1">
       <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton"
         data-bs-toggle="dropdown" aria-expanded="false">
+        <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name | translate }}"
+          class="icon-dropdown-menu me-2">
+        <span>{{ selectedLanguage.name | translate }}</span>
+      </button>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li *ngFor="let language of languages">
+          <a class="dropdown-item d-flex align-items-center" (click)="changeLanguage(language)">
+            <img [src]="language.icon" alt="{{ language.name | translate }}" class="icon-dropdown-item me-2">
+            <span>{{ language.name | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Hiển thị khi ở màn hình điện thoại -->
+<div class="drawer-container d-block d-md-none w-100">
+  <!-- Nút mở menu -->
+  <div class="d-flex w-100 justify-content-between">
+    <div class="grid-item dropdown language-dropdown">
+      <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton"
+        data-bs-toggle="dropdown" aria-expanded="false">
         <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name }}" class="icon-dropdown-menu me-2">
         <span>{{ selectedLanguage.name }}</span>
       </button>
+
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li *ngFor="let language of languages">
           <a class="dropdown-item d-flex align-items-center" (click)="changeLanguage(language)">
@@ -68,67 +99,72 @@
       </ul>
     </div>
 
-  </div>
-</div> -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand" href="#">
-      <img src="assets/logo-ba.png" alt="Logo BAGPS" class="logo-ba">
-    </a>
-
-    <!-- Nút menu cho mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
+    <button class="menu-btn" type="button" (click)="openCloseMenu()">
+      <i class="fa-solid fa-bars"></i>
     </button>
-
-    <!-- Offcanvas Menu -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="https://bagps.vn/">Trang chủ</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://bagps.vn/san-pham-va-giai-phap">
-              Sản phẩm dịch vụ
-            </a></li>
-          <li class="nav-item"><a class="nav-link" href="https://bagps.vn/tin-tuc-c10">Tin tức</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://bagps.vn/huong-dan-dong-phi-dich-vu-ba-gps-d610">
-              Đóng phí
-            </a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="https://badoc.bagroup.vn/x/SAGhBg">Hướng dẫn</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://bagps.vn/mang-luoi">Mạng lưới</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://bagps.vn/gioi-thieu/">Về chúng tôi</a></li>
-        </ul>
-
-        <!-- Nút hotline -->
-        <button class="btn btn-outline-primary w-100 mb-2">
-          <i class="fa-solid fa-phone pe-2"></i> 1900 6464
-        </button>
-
-        <!-- Chọn ngôn ngữ -->
-        <div class="dropdown w-100">
-          <button class="btn dropdown-toggle w-100 d-flex align-items-center justify-content-center" type="button"
-            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name }}" class="icon-dropdown-menu me-2">
-            <span>{{ selectedLanguage.name }}</span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li *ngFor="let language of languages">
-              <a class="dropdown-item d-flex align-items-center" (click)="changeLanguage(language)">
-                <img [src]="language.icon" alt="{{ language.name }}" class="icon-dropdown-item me-2">
-                <span>{{ language.name }}</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
-</nav>
+
+  <!-- Overlay để tạo hiệu ứng làm mờ nền -->
+  <div class="overlay" *ngIf="visible" (click)="openCloseMenu()"></div>
+
+  <!-- Menu trượt từ bên phải -->
+  <div class="menu" [class.open]="visible">
+    <button class="close-btn" style="top: 0" (click)="openCloseMenu()">×</button>
+
+
+    <ul>
+      <li>
+        <a href="https://bagps.vn/">
+          {{'Home' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a href="https://bagps.vn/san-pham-va-giai-phap">
+          {{'ServiceProducts' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a href="https://bagps.vn/tin-tuc-c10">
+          {{'News' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a href="https://bagps.vn/huong-dan-dong-phi-dich-vu-ba-gps-d610">
+          {{'PayFees' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a href="https://badoc.bagroup.vn/x/SAGhBg">
+          {{'Instruct' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a href="https://bagps.vn/mang-luoi">
+          {{'Network' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a href="https://bagps.vn/gioi-thieu/">
+          {{'AboutUs' | translate}}
+        </a>
+      </li>
+
+      <li>
+      </li>
+
+      <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
+        <button type="button" class="hotline-btn-drawer btn btn-outline-primary">
+          <i class="fa-solid fa-phone pe-2"></i>
+          1900 6464
+        </button>
+      </a>
+
+    </ul>
+  </div>
+</div>
