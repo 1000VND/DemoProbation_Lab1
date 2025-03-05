@@ -1,21 +1,6 @@
 <div class="bodyLogin row container-fluid w-100 m-0 p-0">
   <!-- Phần carousel -->
-  <div class="col-md-9 d-flex align-items-center">
-    <!-- <p-carousel [value]="images" [numVisible]="1" [numScroll]="2" [circular]="true" [page]="2"
-      [responsiveOptions]="responsiveOptions" autoplayInterval="5000">
-      <ng-template let-image pTemplate="item">
-        <div class="product-item">
-          <div class="product-item-content">
-            <div class="mb-3">
-              <a [href]="image.url" target="_blank">
-                <img [src]="image.img" [alt]="image.url" class="carousel-image img-custom" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </ng-template>
-    </p-carousel> -->
-
+  <div class="col-md-9 d-flex align-items-center d-none d-md-block p-0">
     <div *ngIf="images && images.length > 0" class="carousel-container">
       <a *ngFor="let image of images; let i=index" [href]="image.url" target="_blank">
         <img [src]="image.img" alt="" [ngClass]="{'image-active': selectedIndex === i}" class="fade-custom" />
@@ -30,7 +15,7 @@
   </div>
 
   <!-- Phần form đăng nhập -->
-  <div class="col-md-3 d-flex align-items-center justify-content-center">
+  <div class="col-md-3 d-flex align-items-center justify-content-center p-0">
     <div class="login-card">
       <div class="text-center">
         <img class="logoba-login" src="assets/logo-ba.png" alt="Logo BAGPS">

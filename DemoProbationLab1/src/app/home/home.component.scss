@@ -50,22 +50,49 @@ input.input-login-form {
 /////////////////////////////////////////////////carousel
 .carousel-container {
     position: relative;
-    margin: auto;
     text-align: center;
-    border-radius: 15px;
     width: 100%;
-    box-shadow: 0 8px 16px #dce1e1;
 }
 
 .carousel-container img {
     display: none;
-    border-radius: 15px;
+    // border-radius: 15px;
+
+    width: 100%;
+    /* Ảnh co theo kích thước parent */
+    height: auto;
+    object-fit: cover;
+    /* Không bị méo */
+    transition: transform 0.3s ease-in-out;
 }
 
 .carousel-container img.image-active {
     display: block;
     width: 100%;
     height: auto;
+    object-fit: contain;
+}
+
+/* Khi zoom out, ảnh sẽ nhỏ theo trang */
+@media (max-width: 1200px) {
+    .carousel-container img {
+        max-height: 60vh;
+        /* Giảm chiều cao ảnh */
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel-container img {
+        max-height: 50vh;
+        /* Giảm chiều cao ảnh */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container img {
+        max-height: 40vh;
+        /* Giảm chiều cao ảnh */
+    }
 }
 
 // dots/indicator
@@ -99,13 +126,14 @@ input.input-login-form {
 
 .fade-custom {
     animation-name: fade-custom;
-    animation-duration: 1.5s ;
+    animation-duration: 1.5s;
 }
 
 @keyframes fade-custom {
     from {
         opacity: 0.4;
     }
+
     to {
         opacity: 1;
     }
