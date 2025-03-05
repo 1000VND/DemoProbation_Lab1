@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
       url: 'https://zalo.me/bagpsvn',
       img: 'https://taxi.binhanhcorp.com/PublicAll/2023/Gps/ba/ba_zalo_2023.jpg',
       title: 'TRUY CẬP ZALO NGAY',
-      shortContent: 'BA GPS ra mắt tính năng Tra cứu phương tiện giúp tài xế dễ dàng theo dõi thời gian lái xe, tra cứu phạt nguội ngay trên ứng dụng di động. Tìm hiểu ngay trong bài viết dưới đây! BA GPS ra mắt tính năng Tra cứu phương tiện giúp tài xế dễ dàng theo dõi thời gian lái xe,'
+      shortContent: 'Chúng tôi chuyên sản xuất và phân phối các sản phẩm: thiết bị giám sát hành trình 4G, camera giám sát ô tô, các loại cảm biến, phụ kiện và các giải pháp quản trị vận tải thông minh,… phù hợp quy chuẩn, đáp ứng quy định nhà nước mang tới cho doanh nghiệp kinh doanh vận tải sản phẩm chất lượng, bắt kịp xu thế.'
     },
     {
       url: 'https://www.baexpress.io',
@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.autoSlideImage();
-
   }
 
   onSubmit() {

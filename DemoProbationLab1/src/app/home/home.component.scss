@@ -173,7 +173,7 @@ input.input-login-form {
 
 /* Tiêu đề tin tức */
 .carousel-title {
-    font-size: 2rem;
+    // font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -194,19 +194,60 @@ input.input-login-form {
     .carousel-content {
         left: 5%;
         bottom: 5%;
-        max-width: 80%;
+        max-width: 90%;
     }
 
     .carousel-title {
         font-size: 1.5rem;
+        text-align: center;
     }
 
     .carousel-description {
         font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .carousel-popup {
+        text-align: center;
     }
 
     .carousel-button {
         padding: 6px 12px;
         font-size: 0.9rem;
+    }
+}
+
+.btn-custom {
+    background: #8cd63f;
+    color: #0a1832;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.carousel-popup {
+    text-align: start;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* Khi thu nhỏ, căn giữa nút */
+@media (max-width: 768px) {
+    .carousel-content {
+        text-align: center;
+        width: 80%;
+    }
+
+    .btn-custom {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
     }
 }

@@ -10,10 +10,22 @@
 
         <!-- Hiển thị tiêu đề và nội dung -->
         <div class="carousel-content">
-          <h1 class="carousel-title">{{ image.title }}</h1>
-          <div class="row">
-            <p class="carousel-description col-10">{{ getShortContent(image.shortContent, 105) }}</p>
-            <a [href]="image.url" target="_blank" class="carousel-button col-2">Chi tiết »</a>
+          <div class="row align-items-center">
+            <div class="col-10">
+              <div class="carousel-popup col-md-12">
+                <h4 class="carousel-title">{{ image.title }}</h4>
+              </div>
+              <div class="carousel-popup col-md-12">
+                <p class="carousel-description">{{ getShortContent(image.shortContent, 110) }}</p>
+              </div>
+            </div>
+            <div class="col-2 d-flex justify-content-center justify-content-center">
+              <a [href]="image.url" target="_blank" class="carousel-button">
+                <button class="btn-custom">
+                  {{'Detail' | translate}} <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </div>

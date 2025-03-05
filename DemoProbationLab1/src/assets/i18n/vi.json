@@ -22,5 +22,6 @@
     "UserNameMaxLength": "Tên đăng nhập không được quá 50 ký tự.",
     "PassWordMaxLength": "Mật khẩu không được quá 200 ký tự.",
     "IncorrectUserNamePassword": "Tài khoản hoặc mật khẩu không đúng",
-    "AccountNotActive": "Tài khoản của bạn chưa được kích hoạt. Vui lòng thử lại sau."
+    "AccountNotActive": "Tài khoản của bạn chưa được kích hoạt. Vui lòng thử lại sau.",
+    "Detail": "Chi tiết"
 }

@@ -22,5 +22,6 @@
     "UserNameMaxLength": "Username cannot exceed 50 characters.",
     "PassWordMaxLength": "Password cannot exceed 200 characters.",
     "IncorrectUserNamePassword": "Incorrect User name or Password",
-    "AccountNotActive": "Your account is not active. Please try again later"
+    "AccountNotActive": "Your account is not active. Please try again later",
+    "Detail": "Detail"
 }

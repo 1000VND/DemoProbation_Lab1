@@ -85,15 +85,15 @@
     <div class="grid-item dropdown language-dropdown">
       <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton"
         data-bs-toggle="dropdown" aria-expanded="false">
-        <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name }}" class="icon-dropdown-menu me-2">
-        <span>{{ selectedLanguage.name }}</span>
+        <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name | translate }}" class="icon-dropdown-menu me-2">
+        <span>{{ selectedLanguage.name | translate }}</span>
       </button>
 
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li *ngFor="let language of languages">
           <a class="dropdown-item d-flex align-items-center" (click)="changeLanguage(language)">
-            <img [src]="language.icon" alt="{{ language.name }}" class="icon-dropdown-item me-2">
-            <span>{{ language.name }}</span>
+            <img [src]="language.icon" alt="{{ language.name | translate }}" class="icon-dropdown-item me-2">
+            <span>{{ language.name | translate }}</span>
           </a>
         </li>
       </ul>
