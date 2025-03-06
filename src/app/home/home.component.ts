@@ -3,8 +3,6 @@ import { AppBaseModule } from '../app-base.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../services/account.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'home',
@@ -69,6 +67,9 @@ export class HomeComponent implements OnInit {
     this.autoSlideImage();
   }
 
+  /**
+   * Nút đăng nhập
+   */
   onSubmit() {
     const {
       username,
@@ -83,14 +84,23 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  /**
+   * Hiển thị mật khẩu
+   */
   togglePassword() {
     this.showPassword = !this.showPassword;
   }
 
+  /**
+   * Ấn vào chấm sẽ đổi ảnh
+   */
   selectImage(index: number) {
     this.selectedIndex = index;
   }
 
+  /**
+   * Tự động chuyển ảnh
+   */
   autoSlideImage() {
     setInterval(() => {
       if (this.selectedIndex === this.images.length - 1) {
@@ -101,6 +111,9 @@ export class HomeComponent implements OnInit {
     }, this.slideInterval);
   }
 
+  /**
+   * Cắt chuỗi trêm tiêu đề tin tức
+   */
   getShortContent(content: string, maxLength: number = 200): string {
     return content.length > maxLength ? content.substring(0, maxLength) + "..." : content;
   }

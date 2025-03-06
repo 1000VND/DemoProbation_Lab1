@@ -5,7 +5,7 @@
       <div *ngFor="let image of images; let i=index" class="carousel-slide"
         [ngClass]="{'image-active': selectedIndex === i}">
         <a [href]="image.url" target="_blank">
-          <img [src]="image.img" alt="" [ngClass]="{'image-active': selectedIndex === i}" class="fade-custom" />
+          <img class="fade-custom" [ngClass]="{'image-active': selectedIndex === i}" [src]="image.img" alt="" />
         </a>
 
         <!-- Hiển thị tiêu đề và nội dung -->
@@ -50,23 +50,21 @@
           <div class="mb-3">
             <div class="input-group input-custom">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
-              <input type="text" class="form-control input-login-form" id="username" formControlName="username"
-                [attr.placeholder]="'UserName' | translate">
+              <input 
+              class="form-control input-login-form" 
+              type="text" 
+              id="username" 
+              formControlName="username"
+              [attr.placeholder]="'UserName' | translate">
             </div>
-            <div class="text-danger" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+            <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched" class="text-danger">
               {{'UserNameIsReqired' | translate}}
             </div>
-            <div class="text-danger"
-              *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched">
+            <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched" class="text-danger">
               {{ 'UserNameInvalid' | translate }}
             </div>
-            <div class="text-danger"
-              *ngIf="loginForm.get('username')?.hasError('maxLength') && loginForm.get('username')?.touched">
+            <div *ngIf="loginForm.get('username')?.hasError('maxLength') && loginForm.get('username')?.touched" class="text-danger">
               {{ 'UserNameMaxLength' | translate }}
-            </div>
-            <div class="text-danger"
-              *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched">
-              {{ 'PassWordMaxLength' | translate }}
             </div>
           </div>
 
@@ -74,15 +72,18 @@
           <div class="mb-3">
             <div class="input-group input-custom">
               <span class="input-group-text"><i class="fas fa-lock"></i></span>
-              <input [type]="showPassword ? 'text' : 'password'" class="form-control input-login-form" id="password"
+              <input class="form-control input-login-form" [type]="showPassword ? 'text' : 'password'" id="password"
                 formControlName="password" [attr.placeholder]="'PassWord' | translate">
               <span class="input-group-text toggle-password" (click)="togglePassword()">
                 <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
               </span>
             </div>
-            <small class="text-danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="text-danger">
               {{'PassWordIsReqired' | translate}}
-            </small>
+            </div>
+            <div *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched" class="text-danger">
+              {{ 'PassWordMaxLength' | translate }}
+            </div>
           </div>
 
           <!-- Ghi nhớ & Quên mật khẩu -->
@@ -94,7 +95,7 @@
             <a href="#" class="text-decoration-none">{{'ForgotPassword' | translate}} ?</a>
           </div>
 
-          <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="loginForm.invalid">
+          <button class="btn btn-primary w-100 mb-3" type="submit" [disabled]="loginForm.invalid">
             {{'SubmitLogin' | translate}}
           </button>
 

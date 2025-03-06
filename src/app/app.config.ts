@@ -7,7 +7,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideToastr, ToastrModule } from 'ngx-toastr';
 
-// Hàm load file JSON
+/**
+ * Hàm load file JSON
+ * @param http 
+ * @returns  
+ */
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -16,13 +20,19 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()),
+    /** 
+    * Cấu hình Toastr (notification)
+    */
     provideAnimationsAsync(),
     provideToastr({
       positionClass: 'toast-top-right',
       timeOut: 5000,
       preventDuplicates: true
     }),
+    /** 
+    * Cấu hình Pipe Translate 
+    */
+    provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {

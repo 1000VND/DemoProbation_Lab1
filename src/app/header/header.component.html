@@ -51,7 +51,7 @@
 
     <div class="grid-item col-1">
       <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
-        <button type="button" class="hotline-btn btn btn-outline-primary">
+        <button class="hotline-btn btn btn-outline-primary" type="button">
           <i class="fa-solid fa-phone pe-2"></i>
           1900 6464
         </button>
@@ -59,10 +59,16 @@
     </div>
 
     <div class="grid-item dropdown language-dropdown col-1">
-      <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name | translate }}"
-          class="icon-dropdown-menu me-2">
+      <button 
+        class="btn dropdown-toggle d-flex align-items-center" 
+        type="button" 
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown" 
+        aria-expanded="false">
+        <img 
+          class="icon-dropdown-menu me-2" 
+          [src]="selectedLanguage.icon" 
+          alt="{{ selectedLanguage.name | translate }}">
         <span>{{ selectedLanguage.name | translate }}</span>
       </button>
 
@@ -83,16 +89,26 @@
   <!-- Nút mở menu -->
   <div class="d-flex w-100 justify-content-between">
     <div class="grid-item dropdown language-dropdown">
-      <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <img [src]="selectedLanguage.icon" alt="{{ selectedLanguage.name | translate }}" class="icon-dropdown-menu me-2">
+      <button 
+      class="btn dropdown-toggle d-flex align-items-center" 
+      type="button" 
+      id="dropdownMenuButton"
+      data-bs-toggle="dropdown" 
+      aria-expanded="false">
+        <img 
+        class="icon-dropdown-menu me-2" 
+        [src]="selectedLanguage.icon" 
+        alt="{{ selectedLanguage.name | translate }}">
         <span>{{ selectedLanguage.name | translate }}</span>
       </button>
 
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li *ngFor="let language of languages">
           <a class="dropdown-item d-flex align-items-center" (click)="changeLanguage(language)">
-            <img [src]="language.icon" alt="{{ language.name | translate }}" class="icon-dropdown-item me-2">
+            <img 
+            class="icon-dropdown-item me-2" 
+            [src]="language.icon" 
+            alt="{{ language.name | translate }}" >
             <span>{{ language.name | translate }}</span>
           </a>
         </li>
@@ -110,8 +126,6 @@
   <!-- Menu trượt từ bên phải -->
   <div class="menu" [class.open]="visible">
     <button class="close-btn" style="top: 0" (click)="openCloseMenu()">×</button>
-
-
     <ul>
       <li>
         <a href="https://bagps.vn/">
@@ -164,7 +178,6 @@
           1900 6464
         </button>
       </a>
-
     </ul>
   </div>
 </div>

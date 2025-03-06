@@ -5,8 +5,8 @@ import { HomeAfterLoginComponent } from './home-after-login/home-after-login.com
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' }, // Chuyển hướng mặc định đến login
-    { path: 'login', component: HomeComponent }, // Trang login
+    { path: 'login', component: HomeComponent }, // Trang Login
     //Sử dụng AuthGuard chặn người dùng truy cập URL trước khi đăng nhập
     { path: 'home', component: HomeAfterLoginComponent, canActivate: [AuthGuard] }, // Trang Home sau khi login
-    { path: '**', redirectTo: 'login', pathMatch: 'full' } // Nếu nhập sai URL, về trang login
+    { path: '**', redirectTo: 'login', pathMatch: 'full' } // Nếu nhập sai URL, về trang Login
 ];

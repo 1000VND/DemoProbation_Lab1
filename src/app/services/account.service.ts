@@ -22,9 +22,16 @@ export class AccountService {
         this.loadUserFromLocalStorage();
     }
 
+    /**
+     * Đăng nhập
+     */
     login(username: string, password: string, rememberMe: boolean): Observable<boolean> {
         const user = Users.find(u => u.username === username && u.password === password);
         if (user) {
+
+            /**
+             * Kiểm tra xem người dùng đã được kích hoạt tài khoản hay chưa
+             */
             if (!user.isActive) {
                 this.toastr.warning(this.translate.instant('AccountNotActive'));
                 return of(false);
@@ -34,15 +41,17 @@ export class AccountService {
                 id: user.id,
                 username: user.username,
                 password: undefined,
-                roles: user.roles,
                 isActive: user.isActive
             };
 
+            /**
+             * Lưu phiên đăng nhập khi tích Ghi nhớ mật khẩu
+             */
             if (rememberMe) {
                 localStorage.setItem('currentUserOfLab1', JSON.stringify(userWithoutPassword));
             }
 
-            this.setCurrentUser(userWithoutPassword); // Cập nhật user vào BehaviorSubject
+            this.setCurrentUser(userWithoutPassword);
             return of(true);
         } else {
             this.toastr.warning(this.translate.instant('IncorrectUserNamePassword'));
@@ -50,29 +59,38 @@ export class AccountService {
         }
     }
 
+    /**
+     * Đăng xuất
+     * Xóa dữ liệu của phiên làm việc
+     */
     logout() {
         localStorage.removeItem('currentUserOfLab1');
         this.currentUserSource.next(null);
         this.router.navigate(['/login']);
     }
 
-    isLoggedIn(): boolean {
-        return !!localStorage.getItem('currentUserOfLab1');
-    }
-
+    /**
+     * Cập nhật user vào BehaviorSubject
+     */
     setCurrentUser(user: User) {
         this.currentUserSource.next(user);
     }
 
+    /**
+     * Lấy dữ liệu User
+     */
     getCurrentUser(): User | null {
         const user = localStorage.getItem('currentUserOfLab1');
         return user ? JSON.parse(user) : null;
     }
 
+    /**
+     * Load từ localStorage khi ứng dụng khởi động
+     */
     private loadUserFromLocalStorage() {
         const user = this.getCurrentUser();
         if (user) {
-            this.setCurrentUser(user); // Load từ localStorage khi ứng dụng khởi động
+            this.setCurrentUser(user);
         }
     }
 

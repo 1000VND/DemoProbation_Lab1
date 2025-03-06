@@ -12,19 +12,30 @@ export class AuthGuard implements CanActivate {
         private router: Router,
     ) { }
 
+    /**
+     * Xác định xem có thể kích hoạt hay không
+     * @returns activate 
+     */
     canActivate(): Observable<boolean> {
         return this.accountService.currentUserOfLab1$.pipe(
             map(user => {
                 if (user) return true;
-                // Nếu currentUserOfLab1$ chưa có dữ liệu, thử lấy từ localStorage
+                /**
+                 * Nếu currentUserOfLab1$ chưa có dữ liệu, thử lấy từ localStorage
+                 */
                 const localUser = this.accountService.getCurrentUser();
-                
+
                 if (localUser) {
-                    this.accountService.setCurrentUser(localUser); // Cập nhật user vào BehaviorSubject
+                    /**
+                     * Cập nhật user vào BehaviorSubject
+                     */
+                    this.accountService.setCurrentUser(localUser);
                     return true;
                 }
 
-                // Nếu không có user, chuyển hướng về login
+                /**
+                 * Nếu không có user, chuyển hướng về login
+                 */
                 this.router.navigateByUrl('/login');
                 return false;
             })

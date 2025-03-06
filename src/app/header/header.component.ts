@@ -24,6 +24,31 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.languageConfig();
+  }
+
+  /**
+   * Thay đổi ngôn ngữ hệ thống
+   * @param language 
+   */
+  changeLanguage(language: any) {
+    this.selectedLanguage = language;
+    this.translate.use(this.selectedLanguage.code.toString());
+    localStorage.setItem('lang', this.selectedLanguage.code);
+  }
+
+  /**
+   * Đóng/Mở Menu
+   */
+  openCloseMenu() {
+    this.visible = !this.visible;
+  }
+
+  /**
+   * Hiển thị Label ngôn ngữ mặc định hoặc đã được cấu hình từ
+   * phiên làm việc trước
+   */
+  private languageConfig() {
     let language = localStorage.getItem('lang');
     if (language) {
       this.selectedLanguage = this.languages.find(e => e.code == language)
@@ -31,20 +56,5 @@ export class HeaderComponent implements OnInit {
       this.selectedLanguage = this.languages[0]
     }
   }
-
-  changeLanguage(language: any) {
-    this.selectedLanguage = language;
-    this.translate.use(this.selectedLanguage.code.toString());
-    localStorage.setItem('lang', this.selectedLanguage.code);
-  }
-
-  openCloseMenu() {
-    this.visible = !this.visible;
-  }
-
-  openLink() {
-    window.open('https://bagps.vn/tel:1900%206464', '_blank');
-  }
-
 
 }
