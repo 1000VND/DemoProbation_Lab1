@@ -1,46 +1,44 @@
 <div class="row container-fluid w-100 m-0 p-0">
   <!-- Phần carousel -->
-  <div class="col-md-9 d-flex align-items-center d-none d-md-block p-0">
-    <div *ngIf="images && images.length > 0" class="carousel-container">
-      <div *ngFor="let image of images; let i=index" class="carousel-slide"
-        [ngClass]="{'image-active': selectedIndex === i}">
-        <a [href]="image.url" target="_blank">
-          <img class="fade-custom" [ngClass]="{'image-active': selectedIndex === i}" [src]="image.img" alt="" />
-        </a>
+  <div *ngIf="images && images.length > 0" class="carousel-container d-none d-md-block">
+    <div *ngFor="let image of images; let i=index" class="carousel-slide"
+      [ngClass]="{'image-active': selectedIndex === i}">
+      <a [href]="image.url" target="_blank">
+        <img class="fade-custom" [ngClass]="{'image-active': selectedIndex === i}" [src]="image.img" alt="" />
+      </a>
 
-        <!-- Hiển thị tiêu đề và nội dung -->
-        <div class="carousel-content">
-          <div class="row align-items-center">
-            <div class="col-10">
-              <div class="carousel-popup col-md-12">
-                <h4 class="carousel-title">{{ image.title }}</h4>
-              </div>
-              <div class="carousel-popup col-md-12">
-                <p class="carousel-description">{{ getShortContent(image.shortContent, 110) }}</p>
-              </div>
+      <!-- Hiển thị tiêu đề và nội dung -->
+      <div class="carousel-content">
+        <div class="row align-items-center" style="height: 100%;">
+          <div class="col-10" style="height: 100%;">
+            <div class="carousel-popup col-md-12">
+              <h5 class="carousel-title" style="margin-bottom: 0;">{{ image.title }}</h5>
             </div>
-            <div class="col-2 d-flex justify-content-center justify-content-center ps-0">
-              <a [href]="image.url" target="_blank" class="carousel-button">
-                <button class="btn-custom">
-                  {{'Detail' | translate}} <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </a>
+            <div class="carousel-popup col-md-12">
+              <p class="carousel-description">{{ getShortContent(image.shortContent, 150) }}</p>
             </div>
+          </div>
+          <div class="col-2 d-flex justify-content-center justify-content-center ps-0">
+            <a [href]="image.url" target="_blank" class="carousel-button">
+              <button class="btn-custom">
+                {{'Detail' | translate}} <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="carousel-dot-container">
-        <span *ngFor="let dot of images;let i=index" class="dot" [ngClass]="{'active': selectedIndex === i}"
-          (click)="selectImage(i)">
-        </span>
-      </div>
+    <div class="carousel-dot-container">
+      <span *ngFor="let dot of images;let i=index" class="dot" [ngClass]="{'active': selectedIndex === i}"
+        (click)="selectImage(i)">
+      </span>
     </div>
   </div>
 
   <!-- Phần form đăng nhập -->
-  <div class="col-md-3 d-flex align-items-center justify-content-center p-0">
-    <div class="login-card">
+  <div class="login-card" style="">
+    <div class="login-card-child">
       <div class="text-center" style="height: 20%;">
         <img class="logoba-login" src="assets/logo-ba.png" alt="Logo BAGPS">
       </div>
@@ -49,21 +47,25 @@
           <!-- Tên đăng nhập -->
           <div class="mb-3">
             <div class="input-group input-custom">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
               <input 
               class="form-control input-login-form" 
               type="text" 
               id="username" 
+              style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;" 
               formControlName="username"
               [attr.placeholder]="'UserName' | translate">
             </div>
-            <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched" class="text-danger">
+            <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
+              class="text-danger">
               {{'UserNameIsReqired' | translate}}
             </div>
-            <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched" class="text-danger">
+            <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched"
+              class="text-danger">
               {{ 'UserNameInvalid' | translate }}
             </div>
-            <div *ngIf="loginForm.get('username')?.hasError('maxLength') && loginForm.get('username')?.touched" class="text-danger">
+            <div *ngIf="loginForm.get('username')?.errors?.['maxLength'] && loginForm.get('username')?.touched"
+              class="text-danger">
               {{ 'UserNameMaxLength' | translate }}
             </div>
           </div>
@@ -71,23 +73,25 @@
           <!-- Mật khẩu -->
           <div class="mb-3">
             <div class="input-group input-custom">
-              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+              <span class="input-group-text text-left-custom"><i class="fas fa-lock"></i></span>
               <input class="form-control input-login-form" [type]="showPassword ? 'text' : 'password'" id="password"
                 formControlName="password" [attr.placeholder]="'PassWord' | translate">
               <span class="input-group-text toggle-password" (click)="togglePassword()">
                 <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
               </span>
             </div>
-            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="text-danger">
+            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+              class="text-danger">
               {{'PassWordIsReqired' | translate}}
             </div>
-            <div *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched" class="text-danger">
+            <div *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched"
+              class="text-danger">
               {{ 'PassWordMaxLength' | translate }}
             </div>
           </div>
 
           <!-- Ghi nhớ & Quên mật khẩu -->
-          <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="check-box-remember-me d-flex justify-content-between align-items-center mb-3">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="rememberMe" formControlName="rememberMe">
               <label class="form-check-label" for="rememberMe">{{'RememberMe'| translate}}</label>
@@ -95,14 +99,14 @@
             <a href="#" class="text-decoration-none">{{'ForgotPassword' | translate}} ?</a>
           </div>
 
-          <button class="btn btn-primary w-100 mb-3" type="submit" [disabled]="loginForm.invalid">
+          <button class="btn btn-primary w-100 mb-3 btn-login" type="submit" [disabled]="loginForm.invalid">
             {{'SubmitLogin' | translate}}
           </button>
 
           <!-- Mã QR -->
-          <div class="d-flex flex-column align-items-center mt-3 pt-3">
+          <div class="qr-container d-flex flex-column align-items-center mt-2 pt-2">
             <img class="qr-install-app" src="assets/qr-install-app.png" alt="Quét mã QR">
-            <label>{{'ScanQrInstallApp' | translate}}</label>
+            <label class="qr-label">{{'ScanQrInstallApp' | translate}}</label>
           </div>
         </form>
       </div>

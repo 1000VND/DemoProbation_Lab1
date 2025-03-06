@@ -4,6 +4,7 @@ h5 {
 
 p {
     color: #8f8f97;
+    text-align: start;
 }
 
 .app-buttons {
@@ -38,16 +39,16 @@ p {
 
 .grid-container {
     display: grid;
-    // 7 cột mặc định
+    // 6 cột mặc định
     grid-template-columns: repeat(7, 1fr);
     gap: 15px;
     text-align: center;
 }
 
-// Màn hình lớn (4 cột)
+// Màn hình lớn (6 cột)
 @media (max-width: 1200px) {
     .grid-container {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
