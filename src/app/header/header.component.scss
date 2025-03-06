@@ -116,11 +116,84 @@ a {
 .hotline-btn,
 .hotline-btn-drawer {
   border-radius: 2rem;
-  height: 2rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
 }
 
-.hotline-btn-drawer{
+.hotline-btn-drawer {
   margin-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .hotline-btn {
+    font-size: 0.9rem;
+    /* Giảm kích thước chữ */
+    padding: 0.2rem 0.8rem;
+    /* Điều chỉnh padding */
+    height: 2.5rem;
+    /* Tự động điều chỉnh chiều cao */
+  }
+
+  .language-dropdown button {
+    font-size: 0.9rem;
+    /* Giảm kích thước chữ */
+    padding: 0.4rem 1rem;
+    /* Điều chỉnh padding */
+    display: flex !important;
+    flex-direction: column;
+    /* Hiển thị theo cột */
+  }
+
+  .icon-dropdown-menu {
+    width: 1.4rem;
+    /* Giảm kích thước icon */
+    margin-right: 0 !important;
+  }
+
+  .grid-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* Điều chỉnh cho màn hình nhỏ */
+@media (max-width: 992px) {
+  .hotline-btn {
+    font-size: 0.7rem;
+    /* Giảm kích thước chữ */
+    padding: 0.1em 0.5rem;
+    /* Điều chỉnh padding */
+    height: auto;
+    /* Tự động điều chỉnh chiều cao */
+  }
+
+  .language-dropdown button {
+    font-size: 0.7rem;
+    /* Giảm kích thước chữ */
+    padding: 0.1em 0.5rem;
+    /* Điều chỉnh padding */
+    display: flex !important;
+    flex-direction: column;
+    /* Hiển thị theo cột */
+  }
+
+  .icon-dropdown-menu {
+    width: 1.2rem;
+    /* Giảm kích thước icon */
+    margin-right: 0 !important;
+  }
+
+  .grid-item {
+    font-size: 0.7rem;
+  }
+}
+
+:host ::ng-deep {
+  .btn.show {
+    border: none;
+  }
+}
+
+button#dropdownMenuButton {
+  padding: 0;
 }
