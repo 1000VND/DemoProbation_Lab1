@@ -8,17 +8,18 @@
       </a>
 
       <!-- Hiển thị tiêu đề và nội dung -->
-      <div class="carousel-content">
-        <div class="row align-items-center" style="height: 100%;">
-          <div class="col-10" style="height: 100%;">
+      <div class="banner-content position-absolute ps-0 pe-0 w-55">
+        <div class="row carousel-content align-items-center">
+          <div class="col-10 pe-0">
             <div class="carousel-popup col-md-12">
-              <h5 class="carousel-title" style="margin-bottom: 0;">{{ image.title }}</h5>
+              <h6 class="carousel-title" style="margin-bottom: 0;">{{ image.title }}</h6>
             </div>
             <div class="carousel-popup col-md-12">
-              <p class="carousel-description">{{ getShortContent(image.shortContent, 150) }}</p>
+              <p class="carousel-description text-truncate">{{ image.shortContent }}
+              </p>
             </div>
           </div>
-          <div class="col-2 d-flex justify-content-center justify-content-center ps-0">
+          <div class="col-2 d-flex justify-content-center justify-content-center ps-0 pe-0">
             <a [href]="image.url" target="_blank" class="carousel-button">
               <button class="btn-custom">
                 {{'Detail' | translate}} <i class="fa-solid fa-arrow-right"></i>
@@ -29,8 +30,8 @@
       </div>
     </div>
 
-    <div class="carousel-dot-container">
-      <span *ngFor="let dot of images;let i=index" class="dot" [ngClass]="{'active': selectedIndex === i}"
+    <div class="carousel-dot-container position-absolute d-flex justify-content-center w-100">
+      <span *ngFor="let dot of images;let i=index" class="dot" [ngClass]="{'active-dot': selectedIndex === i}"
         (click)="selectImage(i)">
       </span>
     </div>
@@ -48,13 +49,9 @@
           <div class="mb-3">
             <div class="input-group input-custom">
               <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
-              <input 
-              class="form-control input-login-form" 
-              type="text" 
-              id="username" 
-              style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;" 
-              formControlName="username"
-              [attr.placeholder]="'UserName' | translate">
+              <input class="form-control input-login-form" type="text" id="username"
+                style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;" formControlName="username"
+                [attr.placeholder]="'UserName' | translate">
             </div>
             <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
               class="text-danger">

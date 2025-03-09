@@ -110,12 +110,4 @@ export class HomeComponent implements OnInit {
       }
     }, this.slideInterval);
   }
-
-  /**
-   * Cắt chuỗi trêm tiêu đề tin tức
-   */
-  getShortContent(content: string, maxLength: number = 200): string {
-    return content.length > maxLength ? content.substring(0, maxLength) + "..." : content;
-  }
-
 }

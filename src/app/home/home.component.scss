@@ -26,9 +26,16 @@ input.input-login-form {
 // Logo & QR Code
 .logoba-login,
 .qr-install-app {
-    width: 10rem;
-    max-width: 100%;
+    width: 160px;
     height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-install-app {
+    border: 1px solid #8f8f97;
+    width: 140px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -46,12 +53,10 @@ input.input-login-form {
 
 // Form đăng nhập
 .login-card {
-    width: 100%;
-    // Giới hạn form để không bị rộng quá
-    max-width: 22vw;
+    width: 380px;
     position: absolute;
-    right: 2%;
-    height: 75vh;
+    right: 4%;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,8 +66,8 @@ input.input-login-form {
     height: 85%;
     background: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 20px;
     width: 100%;
 }
 
@@ -92,18 +97,9 @@ input.input-login-form {
     padding: 0;
 }
 
-// Carousel image 
-.img-custom {
-    width: 100%;
-    max-height: 80vh;
-    object-fit: cover;
-    object-position: center center;
-}
-
 .carousel-container img {
     display: none;
     width: 100%;
-    height: auto;
     // Không bị méo
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
@@ -113,39 +109,50 @@ input.input-login-form {
     display: block;
     width: 100%;
     /* Kích thước hình ảnh */
-    height: 75vh;
+    height: 600px;
     object-fit: cover;
     /* Căn giữa hình ảnh */
     object-position: center center;
 }
 
-// dots/indicator
+/* Container chứa các dots */
 .carousel-dot-container {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin-bottom: 1rem;
+    bottom: 20px;
+    gap: .5rem;
 }
 
+/* Dot mặc định */
 .dot {
-    cursor: pointer;
-    height: 13px;
-    width: 13px;
-    margin: 0 5px;
-    background-color: #bb1629;
+    width: 1rem;
+    height: 1rem;
+    background-color: white;
+    border: .15rem solid white;
     border-radius: 50%;
-    display: inline-block;
-    transition: opacity 0.6s ease;
-    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-.active,
+/* Nhân nhỏ bên trong màu trắng */
+.dot::after {
+    content: "";
+    width: .5rem;
+    height: .5rem;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Dot đang active */
+.active-dot {
+    border-color: white;
+    background-color: transparent;
+}
+
+/* Hover hiệu ứng */
 .dot:hover {
-    opacity: 1;
+    opacity: 0.6;
 }
 
 .fade-custom {
@@ -164,24 +171,21 @@ input.input-login-form {
 }
 
 // 
-.carousel-content {
-    position: absolute;
+.banner-content {
     bottom: 10%;
     left: 2%;
-    width: 60%;
+    width: 55%;
+
+}
+
+.carousel-content {
     background: rgba(0, 0, 0, 0.7);
     padding: 0;
     border-radius: 10px;
     color: white;
-    z-index: 2;
-    height: 8vh;
-}
-
-/* Tiêu đề tin tức */
-.carousel-title {
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
+    width: 100%;
+    min-height: 60px;
+    height: auto;
 }
 
 .carousel-slide {
@@ -198,7 +202,7 @@ input.input-login-form {
 .btn-custom {
     background: #8cd63f;
     color: #0a1832;
-    font-size: 1em;
+    font-size: 13.6px;
     font-weight: bold;
     border: none;
     border-radius: 2em;
@@ -256,23 +260,23 @@ input.input-login-form {
         padding: 0;
         font-size: 0.7rem;
     }
-
-    .carousel-container img {
-        max-height: 60vh;
-    }
 }
 
-@media (max-width: 992px) {
+@media (min-width: 993px) and (max-width: 1199px) {
+    .banner-content {
+        width: 500px;
+    }
+
     .carousel-content {
-        left: 2%;
-        bottom: 10%;
-        width: 60%;
+        width: 100%;
         height: auto;
+        left: 2%;
+        min-height: 40px;
     }
 
     .carousel-popup {
         text-align: start;
-        margin-left: 1em;
+        margin-left: 0;
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -293,18 +297,26 @@ input.input-login-form {
         font-size: 0.5rem;
     }
 
-    .carousel-container img {
-        max-height: 50vh;
+    .btn-custom {
+        font-size: 9.6px;
     }
 
     .login-card {
-        width: 100%;
-        max-width: 30vw;
+        width: 260px;
         right: 0%;
-        height: 50vh;
+        height: 450px;
         display: flex;
         align-items: center;
         position: absolute;
+    }
+
+    .login-card-child {
+        height: 85%;
+        background: white;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 0 1rem 1rem 1rem;
+        border-radius: 20px;
+        width: 100%;
     }
 
     .logoba-login,
@@ -332,7 +344,7 @@ input.input-login-form {
     }
 
     .check-box-remember-me {
-        font-size: 0.5rem;
+        font-size: 9.6px;
         align-items: flex-start !important;
         height: 1rem;
         margin-bottom: .3em !important;
@@ -340,16 +352,127 @@ input.input-login-form {
 
     .btn-login {
         font-size: 0.7rem;
-        height: 2.3rem;
+        height: 30px;
         margin-bottom: 0.3em !important;
     }
 
     .qr-container {
+        font-size: 9.6px;
+    }
+
+    .qr-install-app {
+        width: 70px;
+    }
+
+    .carousel-container img {
+        max-height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .banner-content {
+        width: 500px;
+    }
+
+    .carousel-content {
+        width: 100%;
+        height: auto;
+        left: 2%;
+        min-height: 40px;
+    }
+
+    .carousel-popup {
+        text-align: start;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .carousel-title {
+        font-size: 0.7rem;
+        text-align: start;
+        margin-top: 0;
+    }
+
+    .carousel-description {
+        font-size: 0.6rem;
+        text-align: start;
+    }
+
+    .carousel-button {
+        padding: 0;
         font-size: 0.5rem;
     }
 
-    .qr-install-app{
-        width: 3rem;
+    .btn-custom {
+        font-size: 9.6px;
+    }
+
+    .carousel-container img {
+        max-height: 450px;
+    }
+
+    .login-card {
+        width: 260px;
+        right: 0%;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+    }
+
+    .login-card-child {
+        height: 85%;
+        background: white;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 0 1rem 1rem 1rem;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    .logoba-login,
+    .qr-install-app {
+        width: 4rem;
+    }
+
+    .qr-install-app {
+        border: 1px solid;
+    }
+
+    .input-custom {
+        height: 2rem;
+    }
+
+    span.text-left-custom {
+        font-size: 0.6rem;
+        height: 100%;
+        padding: .2rem 0;
+    }
+
+    .input-login-form {
+        height: 100%;
+        font-size: 0.6rem;
+    }
+
+    .check-box-remember-me {
+        font-size: 9.6px;
+        align-items: flex-start !important;
+        height: 1rem;
+        margin-bottom: .3em !important;
+    }
+
+    .btn-login {
+        font-size: 0.7rem;
+        height: 30px;
+        margin-bottom: 0.3em !important;
+    }
+
+    .qr-container {
+        font-size: 9.6px;
+    }
+
+    .qr-install-app {
+        width: 70px;
     }
 }
 

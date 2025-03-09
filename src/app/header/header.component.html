@@ -52,8 +52,8 @@
     <div class="grid-item col-1">
       <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
         <button class="hotline-btn btn btn-outline-primary" type="button">
-          <i class="fa-solid fa-phone pe-2"></i>
-          1900 6464
+          <i class="fa-solid fa-phone"></i>
+          <span class="ps-2">1900 6464</span>
         </button>
       </a>
     </div>
@@ -80,6 +80,10 @@
           </a>
         </li>
       </ul>
+
+      <button class="menu-btn-1" type="button" (click)="openCloseMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
   </div>
 </div>
