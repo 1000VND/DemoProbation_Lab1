@@ -41,6 +41,7 @@ a {
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   transition: opacity 0.3s ease-in-out;
+  display: none;
 }
 
 // Menu trượt từ bên phải
@@ -48,7 +49,6 @@ a {
   position: fixed;
   top: 0;
   right: 0;
-  // Giữ menu ở bên phải
   width: 80%;
   height: 100vh;
   background: #333;
@@ -57,6 +57,7 @@ a {
   transition: transform 0.3s ease-in-out;
   transform: translateX(100%);
   z-index: 20;
+  display: none;
 }
 
 // Khi mở menu 
@@ -99,6 +100,7 @@ a {
   left: 10px;
 }
 
+.menu-btn-1,
 .menu-btn {
   width: 45px;
   height: 45px;
@@ -109,6 +111,7 @@ a {
   justify-content: center;
 }
 
+.menu-btn-1,
 .menu-btn i {
   font-size: 24px;
   color: rgb(0, 0, 0);
@@ -132,13 +135,34 @@ a {
   display: none;
 }
 
-@media (min-width: 576px) and (max-width: 1319px) {
+@media (min-width: 769px) and (max-width: 1319px) {
   .menu-btn-1 {
+    display: block;
+  }
+
+  .col-hotline {
+    margin-left: auto;
+    display: flex;
+    justify-content: end;
+    padding-right: 0;
+  }
+
+  .grid-item.dropdown {
+    justify-content: space-between;
+    width: 100px;
+  }
+
+  .menu {
+    display: block;
+    width: 300px;
+  }
+
+  .overlay {
     display: block;
   }
 }
 
-@media (max-width: 1774px) {
+@media (max-width: 1788px) {
 
   .hotline-btn>span,
   .dropdown-toggle>span {
@@ -163,56 +187,41 @@ a {
     /* Tự động điều chỉnh chiều cao */
   }
 
-  .language-dropdown button {
-    font-size: 0.9rem;
-    /* Giảm kích thước chữ */
-    padding: 0.4rem 1rem;
-    /* Điều chỉnh padding */
-    display: flex !important;
-    flex-direction: column;
-    /* Hiển thị theo cột */
-  }
-
   .icon-dropdown-menu {
     width: 1.4rem;
     /* Giảm kích thước icon */
     margin-right: 0 !important;
   }
-
-  .grid-item {
-    font-size: 0.9rem;
-  }
 }
 
 /* Điều chỉnh cho màn hình nhỏ */
 @media (max-width: 992px) {
-  .hotline-btn {
-    font-size: 0.7rem;
-    /* Giảm kích thước chữ */
-    padding: 0.1em 0.5rem;
-    /* Điều chỉnh padding */
-    height: auto;
-    /* Tự động điều chỉnh chiều cao */
-  }
-
-  .language-dropdown button {
-    font-size: 0.7rem;
-    /* Giảm kích thước chữ */
-    padding: 0.1em 0.5rem;
-    /* Điều chỉnh padding */
-    display: flex !important;
-    flex-direction: column;
-    /* Hiển thị theo cột */
-  }
-
   .icon-dropdown-menu {
     width: 1.2rem;
     /* Giảm kích thước icon */
     margin-right: 0 !important;
   }
+}
 
-  .grid-item {
-    font-size: 0.7rem;
+@media (max-width: 768px) {
+
+  .drawer-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .menu {
+    display: block;
+    width: 50%;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .hotline-btn>span,
+  .dropdown-toggle>span {
+    display: block;
   }
 }
 

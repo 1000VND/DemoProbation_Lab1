@@ -49,6 +49,7 @@ input.input-login-form {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20%;
 }
 
 // Form đăng nhập
@@ -123,10 +124,10 @@ input.input-login-form {
 
 /* Dot mặc định */
 .dot {
-    width: 1rem;
-    height: 1rem;
+    width: 11px;
+    height: 11px;
     background-color: white;
-    border: .15rem solid white;
+    border: 1px solid white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -138,8 +139,8 @@ input.input-login-form {
 /* Nhân nhỏ bên trong màu trắng */
 .dot::after {
     content: "";
-    width: .5rem;
-    height: .5rem;
+    width: 5px;
+    height: 5px;
     background-color: white;
     border-radius: 50%;
 }
@@ -351,7 +352,7 @@ input.input-login-form {
     }
 
     .btn-login {
-        font-size: 0.7rem;
+        font-size: 9.6px;
         height: 30px;
         margin-bottom: 0.3em !important;
     }
@@ -462,7 +463,7 @@ input.input-login-form {
     }
 
     .btn-login {
-        font-size: 0.7rem;
+        font-size: 9.6px;
         height: 30px;
         margin-bottom: 0.3em !important;
     }
@@ -477,6 +478,8 @@ input.input-login-form {
 }
 
 @media (max-width: 768px) {
+
+
     .carousel-content {
         text-align: center;
         width: 80%;
@@ -501,15 +504,51 @@ input.input-login-form {
     // Form đăng nhập
     .login-card {
         width: 100%;
-        max-width: 100vw;
-        right: 0%;
-        height: 75vh;
+        height: 500px;
         display: flex;
         align-items: center;
         position: relative;
+        justify-content: center;
     }
 
     .login-card-child {
-        height: 95%;
+        width: 350px;
+        height: 500px;
     }
+
+    .text-center {
+        align-items: start;
+        height: 80px;
+    }
+
+    .input-custom {
+        height: 40px;
+    }
+
+    .input-login-form {
+        font-size: 16px;
+    }
+
+    span.text-left-custom {
+        font-size: 16px;
+    }
+
+    .check-box-remember-me {
+        font-size: 16px;
+        height: 30px;
+    }
+
+    .btn-login {
+        font-size: 16px;
+        height: 35px;
+    }
+
+    .qr-label {
+        font-size: 16px;
+    }
+
+    .qr-container {
+        padding-top: 50px !important;
+    }
+
 }

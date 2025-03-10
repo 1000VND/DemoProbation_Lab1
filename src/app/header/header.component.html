@@ -1,7 +1,7 @@
 <!-- Hiển thị khi ở màn hình to -->
 <div class="d-none d-md-block container-fluid w-100 m-0 p-0">
-  <div class="row">
-    <div class=" text-center col-2">
+  <div class="row header-container">
+    <div class="text-center col-2">
       <img class="logo-ba" src="assets/logo-ba.png" alt="Logo BAGPS">
     </div>
 
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="grid-item col-1">
+    <div class="grid-item col-hotline col-1">
       <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
         <button class="hotline-btn btn btn-outline-primary" type="button">
           <i class="fa-solid fa-phone"></i>
@@ -123,65 +123,65 @@
       <i class="fa-solid fa-bars"></i>
     </button>
   </div>
+</div>
 
-  <!-- Overlay để tạo hiệu ứng làm mờ nền -->
-  <div class="overlay" *ngIf="visible" (click)="openCloseMenu()"></div>
+<!-- Overlay để tạo hiệu ứng làm mờ nền -->
+<div class="overlay" *ngIf="visible" (click)="openCloseMenu()"></div>
 
-  <!-- Menu trượt từ bên phải -->
-  <div class="menu" [class.open]="visible">
-    <button class="close-btn" style="top: 0" (click)="openCloseMenu()">×</button>
-    <ul>
-      <li>
-        <a href="https://bagps.vn/">
-          {{'Home' | translate}}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://bagps.vn/san-pham-va-giai-phap">
-          {{'ServiceProducts' | translate}}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://bagps.vn/tin-tuc-c10">
-          {{'News' | translate}}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://bagps.vn/huong-dan-dong-phi-dich-vu-ba-gps-d610">
-          {{'PayFees' | translate}}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://badoc.bagroup.vn/x/SAGhBg">
-          {{'Instruct' | translate}}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://bagps.vn/mang-luoi">
-          {{'Network' | translate}}
-        </a>
-      </li>
-
-      <li>
-        <a href="https://bagps.vn/gioi-thieu/">
-          {{'AboutUs' | translate}}
-        </a>
-      </li>
-
-      <li>
-      </li>
-
-      <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
-        <button type="button" class="hotline-btn-drawer btn btn-outline-primary">
-          <i class="fa-solid fa-phone pe-2"></i>
-          1900 6464
-        </button>
+<!-- Menu trượt từ bên phải -->
+<div class="menu" [class.open]="visible">
+  <button class="close-btn" style="top: 0" (click)="openCloseMenu()">×</button>
+  <ul>
+    <li>
+      <a href="https://bagps.vn/">
+        {{'Home' | translate}}
       </a>
-    </ul>
-  </div>
+    </li>
+
+    <li>
+      <a href="https://bagps.vn/san-pham-va-giai-phap">
+        {{'ServiceProducts' | translate}}
+      </a>
+    </li>
+
+    <li>
+      <a href="https://bagps.vn/tin-tuc-c10">
+        {{'News' | translate}}
+      </a>
+    </li>
+
+    <li>
+      <a href="https://bagps.vn/huong-dan-dong-phi-dich-vu-ba-gps-d610">
+        {{'PayFees' | translate}}
+      </a>
+    </li>
+
+    <li>
+      <a href="https://badoc.bagroup.vn/x/SAGhBg">
+        {{'Instruct' | translate}}
+      </a>
+    </li>
+
+    <li>
+      <a href="https://bagps.vn/mang-luoi">
+        {{'Network' | translate}}
+      </a>
+    </li>
+
+    <li>
+      <a href="https://bagps.vn/gioi-thieu/">
+        {{'AboutUs' | translate}}
+      </a>
+    </li>
+
+    <li>
+    </li>
+
+    <a [href]="'https://bagps.vn/tel:1900%206464'" target="_blank">
+      <button type="button" class="hotline-btn-drawer btn btn-outline-primary">
+        <i class="fa-solid fa-phone pe-2"></i>
+        1900 6464
+      </button>
+    </a>
+  </ul>
 </div>
