@@ -19,7 +19,7 @@ p {
 
 .img-app-store {
     object-fit: cover;
-    width: 55%;
+    width: 180px;
     height: auto;
     object-position: center center;
 }
@@ -45,10 +45,15 @@ p {
     text-align: center;
 }
 
-// Màn hình lớn (6 cột)
+// Màn hình lớn (3 cột)
 @media (max-width: 1200px) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-item:last-child {
+        grid-column: span 3;
+        justify-self: center;
     }
 }
 
@@ -57,12 +62,26 @@ p {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .grid-item:last-child {
+        grid-column: span 2;
+        justify-self: center;
+    }
 }
 
 // Mobile (1 cột)
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-item:last-child {
+        grid-column: span 1;
+        justify-self: center;
+    }
+
+    .img-app-store{
+        width: 180px;
     }
 }
 
