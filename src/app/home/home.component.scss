@@ -109,10 +109,8 @@ input.input-login-form {
 .carousel-container img.image-active {
     display: block;
     width: 100%;
-    /* Kích thước hình ảnh */
     height: 600px;
     object-fit: cover;
-    /* Căn giữa hình ảnh */
     object-position: center center;
 }
 
@@ -176,7 +174,6 @@ input.input-login-form {
     bottom: 10%;
     left: 2%;
     width: 55%;
-
 }
 
 .carousel-content {
@@ -303,9 +300,9 @@ input.input-login-form {
     }
 
     .login-card {
-        width: 260px;
+        width: 320px;
         right: 0%;
-        height: 450px;
+        height: 515px;
         display: flex;
         align-items: center;
         position: absolute;
@@ -322,7 +319,7 @@ input.input-login-form {
 
     .logoba-login,
     .qr-install-app {
-        width: 4rem;
+        width: 110px;
     }
 
     .qr-install-app {
@@ -330,35 +327,35 @@ input.input-login-form {
     }
 
     .input-custom {
-        height: 2rem;
+        height: 38px;
     }
 
     span.text-left-custom {
-        font-size: 0.6rem;
+        font-size: 14px;
         height: 100%;
         padding: .2rem 0;
     }
 
     .input-login-form {
         height: 100%;
-        font-size: 0.6rem;
+        font-size: 14px;
     }
 
     .check-box-remember-me {
-        font-size: 9.6px;
+        font-size: 14px;
         align-items: flex-start !important;
-        height: 1rem;
+        height: 30px;
         margin-bottom: .3em !important;
     }
 
     .btn-login {
-        font-size: 9.6px;
-        height: 30px;
-        margin-bottom: 0.3em !important;
+        font-size: 14px;
+        height: 36px;
+        margin-bottom: 30px !important;
     }
 
     .qr-container {
-        font-size: 9.6px;
+        font-size: 14px;
     }
 
     .qr-install-app {
@@ -366,7 +363,7 @@ input.input-login-form {
     }
 
     .carousel-container img {
-        max-height: 450px;
+        max-height: 520px;
     }
 }
 
@@ -478,15 +475,37 @@ input.input-login-form {
 }
 
 @media (max-width: 768px) {
+
+    
+    .carousel-container img {
+        height: 630px;
+        max-height: 630px;
+    }
+
+    .carousel-container img.image-active{
+        height: 630px; 
+    }
+
     .carousel-content {
         text-align: center;
-        width: 80%;
+        width: 100%;
+    }
+
+    .carousel-dot-container{
+        bottom: 15px;
+    }
+
+    .banner-content{
+        bottom: 7%;
+        width: 90%;
+        left: 5%;
     }
 
     .btn-custom {
         display: flex;
         justify-content: center;
         margin: 0 auto;
+        font-size: 8.8px;
     }
 
     // Giảm kích thước logo và QR trên mobile
@@ -502,10 +521,10 @@ input.input-login-form {
     // Form đăng nhập
     .login-card {
         width: 100%;
-        height: 500px;
+        height: 520px;
         display: flex;
         align-items: center;
-        position: relative;
+        position: absolute;
         justify-content: center;
     }
 

@@ -1,6 +1,6 @@
 <div class="row container-fluid w-100 m-0 p-0">
   <!-- Phần carousel -->
-  <div *ngIf="images && images.length > 0" class="carousel-container d-none d-md-block">
+  <div *ngIf="images && images.length > 0" class="carousel-container">
     <div *ngFor="let image of images; let i=index" class="carousel-slide"
       [ngClass]="{'image-active': selectedIndex === i}">
       <a [href]="image.url" target="_blank">

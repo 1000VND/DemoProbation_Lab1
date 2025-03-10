@@ -8,8 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: './home.component.remake.html',
+  styleUrls: ['./home.component.remake.scss'],
   imports: [AppBaseModule],
   standalone: true,
 })

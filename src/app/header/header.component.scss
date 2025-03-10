@@ -1,9 +1,20 @@
+/* General Styles */
 a {
   text-decoration: none;
   color: #1660a0;
-
 }
 
+button#dropdownMenuButton,
+button#dropdownMenuButtonMobile {
+  padding: 0;
+}
+
+/* Angular Deep Host Styles */
+:host ::ng-deep .btn.show {
+  border: none;
+}
+
+/* Sizes */
 .icon-dropdown-menu,
 .icon-dropdown-item {
   width: 1.5rem;
@@ -13,12 +24,7 @@ a {
   width: 7rem;
 }
 
-.grid-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Grid Layout */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -26,25 +32,35 @@ a {
   padding: 0;
 }
 
-// dropdown
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 25px;
+}
+
+/* Drawer and Overlay */
 .drawer-container {
+  height: 65px;
   position: relative;
 }
 
-// Overlay làm mờ nền khi mở menu
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   transition: opacity 0.3s ease-in-out;
   display: none;
 }
 
-// Menu trượt từ bên phải
+/* Slide-in Menu */
 .menu {
   position: fixed;
   top: 0;
@@ -60,13 +76,10 @@ a {
   display: none;
 }
 
-// Khi mở menu 
 .menu.open {
-  // Trượt vào đúng vị trí
   transform: translateX(0);
 }
 
-// Danh sách menu
 .menu ul {
   list-style: none;
   padding: 0;
@@ -77,7 +90,7 @@ a {
 }
 
 .menu ul li:first-child {
-  margin: 15px 0 0 0;
+  margin: 15px 0 0;
   padding-top: 10px;
 }
 
@@ -88,7 +101,7 @@ a {
   padding: 10px 0;
 }
 
-// Nút đóng menu
+/* Buttons */
 .close-btn {
   background: none;
   border: none;
@@ -100,8 +113,8 @@ a {
   left: 10px;
 }
 
-.menu-btn-1,
-.menu-btn {
+.menu-btn,
+.menu-btn-1 {
   width: 45px;
   height: 45px;
   background: transparent;
@@ -111,10 +124,14 @@ a {
   justify-content: center;
 }
 
-.menu-btn-1,
-.menu-btn i {
+.menu-btn i,
+.menu-btn-1 i {
   font-size: 24px;
-  color: rgb(0, 0, 0);
+  color: #000;
+}
+
+.menu-btn-1 {
+  display: none;
 }
 
 .hotline-btn,
@@ -131,106 +148,50 @@ a {
   margin-top: 2rem;
 }
 
-.menu-btn-1 {
-  display: none;
-}
-
-@media (min-width: 769px) and (max-width: 1319px) {
-  .menu-btn-1 {
-    display: block;
-  }
-
-  .col-hotline {
-    margin-left: auto;
-    display: flex;
-    justify-content: end;
-    padding-right: 0;
-  }
-
+/* Media Queries */
+@media (min-width: 769px) and (max-width: 1320px) {
   .grid-item.dropdown {
     justify-content: space-between;
     width: 100px;
   }
-
   .menu {
     display: block;
     width: 300px;
   }
-
   .overlay {
     display: block;
   }
 }
 
 @media (max-width: 1788px) {
-
-  .hotline-btn>span,
-  .dropdown-toggle>span {
+  .dropdown-toggle > span {
     display: none;
   }
-
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1399px) {
   .grid-container {
     display: none;
   }
-}
-
-@media (max-width: 1200px) {
-  .hotline-btn {
-    font-size: 0.9rem;
-    /* Giảm kích thước chữ */
-    padding: 0.2rem 0.8rem;
-    /* Điều chỉnh padding */
-    height: 2.5rem;
-    /* Tự động điều chỉnh chiều cao */
-  }
-
-  .icon-dropdown-menu {
-    width: 1.4rem;
-    /* Giảm kích thước icon */
-    margin-right: 0 !important;
-  }
-}
-
-/* Điều chỉnh cho màn hình nhỏ */
-@media (max-width: 992px) {
-  .icon-dropdown-menu {
-    width: 1.2rem;
-    /* Giảm kích thước icon */
-    margin-right: 0 !important;
+  .menu-btn-1 {
+    display: block;
   }
 }
 
 @media (max-width: 768px) {
-
   .drawer-container {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
+    height: 62.27px;
   }
-
   .menu {
     display: block;
     width: 50%;
   }
-
   .overlay {
     display: block;
   }
-
-  .hotline-btn>span,
-  .dropdown-toggle>span {
+  .hotline-btn > span,
+  .dropdown-toggle > span {
     display: block;
   }
-}
-
-:host ::ng-deep {
-  .btn.show {
-    border: none;
-  }
-}
-
-button#dropdownMenuButton {
-  padding: 0;
 }
