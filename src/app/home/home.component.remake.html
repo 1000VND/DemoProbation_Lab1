@@ -56,7 +56,8 @@
                                     <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
                                     <input class="form-control input-login-form" type="text" id="username"
                                         style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;"
-                                        [attr.placeholder]="'UserName' | translate" formControlName="username" maxlength="50">
+                                        [attr.placeholder]="'UserName' | translate" formControlName="username"
+                                        maxlength="50">
                                 </div>
                                 <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
                                     class="text-danger text-start">
@@ -74,13 +75,14 @@
                                     <span class="input-group-text text-left-custom"><i class="fas fa-lock"></i></span>
                                     <input class="form-control input-login-form"
                                         [type]="showPassword ? 'text' : 'password'" id="password"
-                                        [attr.placeholder]="'PassWord' | translate" formControlName="password" maxlength="200">
+                                        [attr.placeholder]="'PassWord' | translate" formControlName="password"
+                                        maxlength="200">
                                     <span class="input-group-text toggle-password" (click)="togglePassword()">
                                         <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
                                     </span>
                                 </div>
                                 <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
-                                    class="text-danger">
+                                    class="text-danger text-start">
                                     {{'PassWordIsReqired' | translate}}
                                 </div>
                             </div>
