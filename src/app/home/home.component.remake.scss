@@ -102,27 +102,99 @@
 }
 
 //////////////////////////////////////////// Phần Login ////////////////////////////////////////////
-.login-card {
-    width: 320px;
-    right: 30px;
+.container-form-login {
     height: 600px;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    padding: 0;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 360px;
 }
 
 .login-card-child {
-    height: 85%;
     background: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 0 16px 16px 16px;
     border-radius: 20px;
     width: 100%;
 }
 
-.logoba-login{
+.logoba-login {
+    width: 150px;
+    margin-bottom: 24px;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 12px 16px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+}
+
+.input-custom {
+    height: 2.8rem;
+    border-radius: 1.5rem;
+    border: 1px solid #c0c2c5;
+}
+
+input.input-login-form {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 0;
+    height: 100%;
+}
+
+.text-left-custom {
+    height: 100%;
+    width: 3rem;
+    justify-content: center;
+}
+
+span.input-group-text {
+    border: none;
+    background: transparent;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+
+.btn-login {
+    background: linear-gradient(to right, #3293e9, #00c3fe);
+    border: none;
+    border-radius: 25px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.form-check-label,
+.forgot-password {
+    font-size: 14px;
+}
+
+.forgot-password {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.qr-section img {
     width: 120px;
+}
+
+.qr-section p {
+    font-size: 14px;
+    color: #666;
 }
 
 //////////////////////////////////////////// Responsive ////////////////////////////////////////////
@@ -130,5 +202,9 @@
 @media (max-width: 992px) {
     .banner-content {
         width: 85vw;
+    }
+
+    .carousel-container img {
+        height: 680px;
     }
 }

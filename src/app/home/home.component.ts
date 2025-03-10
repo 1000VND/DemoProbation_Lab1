@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
+  loginForm: FormGroup;
   showPassword: boolean = false;
   selectedIndex: number = 0;
   slideInterval: number = 5000;
@@ -56,33 +57,36 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor(
+    private fb: FormBuilder,
     private userService: AccountService,
     private router: Router,
-    private translate: TranslateService,
-    private toastr: ToastrService,
   ) {
-    // this.loginForm = this.fb.group({
-    //   username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/), Validators.maxLength(50)]],
-    //   password: ['', [Validators.required, Validators.maxLength(200)]],
-    //   rememberMe: [false]
-    // });
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]],
+      password: ['', [Validators.required]],
+      rememberMe: [false]
+    });
   }
 
   ngOnInit() {
-    this.autoSlideImage();
+    // this.autoSlideImage();
   }
 
   /**
    * Nút đăng nhập
    */
   onSubmit() {
-    if (this.validate()) {
-      this.userService.login(this.userName, this.passWord, this.rememberMe).subscribe(success => {
-        if (success) {
-          this.router.navigate(['/home']);
-        }
-      })
-    }
+    const {
+      username,
+      password,
+      rememberMe
+    } = this.loginForm.value;
+
+    this.userService.login(username, password, rememberMe).subscribe(success => {
+      if (success) {
+        this.router.navigate(['/home']);
+      }
+    })
   }
 
   /**
@@ -110,26 +114,5 @@ export class HomeComponent implements OnInit {
         this.selectedIndex++;
       }
     }, this.slideInterval);
-  }
-
-  validate(): boolean {
-    if (!this.userName) {
-      this.toastr.warning(this.translate.instant('UserNameIsReqired'));
-      return false;
-    } else if (!/^[a-zA-Z0-9]+$/.test(this.userName)) {
-      this.toastr.warning(this.translate.instant('UserNameInvalid'));
-      return false;
-    } else if (this.userName.length > 50) {
-      this.toastr.warning(this.translate.instant('UserNameMaxLength'));
-      return false;
-    } else if (!this.passWord) {
-      this.toastr.warning(this.translate.instant('PassWordIsReqired'));
-      return false;
-    } else if (this.passWord.length > 50) {
-      this.toastr.warning(this.translate.instant('PassWordMaxLength'));
-      return false;
-    }
-
-    return true;
   }
 }
