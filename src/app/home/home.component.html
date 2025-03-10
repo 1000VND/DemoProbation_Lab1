@@ -44,68 +44,67 @@
         <img class="logoba-login" src="assets/logo-ba.png" alt="Logo BAGPS">
       </div>
       <div class="card-body" style="height: 80%;">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <!-- Tên đăng nhập -->
-          <div class="mb-3">
-            <div class="input-group input-custom">
-              <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
-              <input class="form-control input-login-form" type="text" id="username"
-                style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;" formControlName="username"
-                [attr.placeholder]="'UserName' | translate">
-            </div>
-            <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
-              class="text-danger">
-              {{'UserNameIsReqired' | translate}}
-            </div>
-            <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched"
-              class="text-danger">
-              {{ 'UserNameInvalid' | translate }}
-            </div>
-            <div *ngIf="loginForm.get('username')?.errors?.['maxLength'] && loginForm.get('username')?.touched"
-              class="text-danger">
-              {{ 'UserNameMaxLength' | translate }}
-            </div>
+        <!-- Tên đăng nhập -->
+        <div class="mb-3">
+          <div class="input-group input-custom">
+            <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
+            <input class="form-control input-login-form" type="text" id="username"
+              style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;"
+              [attr.placeholder]="'UserName' | translate" [(ngModel)]="userName">
           </div>
-
-          <!-- Mật khẩu -->
-          <div class="mb-3">
-            <div class="input-group input-custom">
-              <span class="input-group-text text-left-custom"><i class="fas fa-lock"></i></span>
-              <input class="form-control input-login-form" [type]="showPassword ? 'text' : 'password'" id="password"
-                formControlName="password" [attr.placeholder]="'PassWord' | translate">
-              <span class="input-group-text toggle-password" (click)="togglePassword()">
-                <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
-              </span>
-            </div>
-            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
-              class="text-danger">
-              {{'PassWordIsReqired' | translate}}
-            </div>
-            <div *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched"
-              class="text-danger">
-              {{ 'PassWordMaxLength' | translate }}
-            </div>
+          <!-- <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
+            class="text-danger">
+            {{'UserNameIsReqired' | translate}}
           </div>
-
-          <!-- Ghi nhớ & Quên mật khẩu -->
-          <div class="check-box-remember-me d-flex justify-content-between align-items-center mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="rememberMe" formControlName="rememberMe">
-              <label class="form-check-label" for="rememberMe">{{'RememberMe'| translate}}</label>
-            </div>
-            <a href="#" class="text-decoration-none">{{'ForgotPassword' | translate}} ?</a>
+          <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched"
+            class="text-danger">
+            {{ 'UserNameInvalid' | translate }}
           </div>
+          <div
+            *ngIf="(loginForm.get('username')?.hasError('maxlength') && (loginForm.get('username')?.touched || loginForm.get('username')?.dirty))"
+            class="text-danger">
+            {{ 'UserNameMaxLength' | translate }}
+          </div> -->
+        </div>
 
-          <button class="btn btn-primary w-100 mb-3 btn-login" type="submit" [disabled]="loginForm.invalid">
-            {{'SubmitLogin' | translate}}
-          </button>
-
-          <!-- Mã QR -->
-          <div class="qr-container d-flex flex-column align-items-center mt-2 pt-2">
-            <img class="qr-install-app" src="assets/qr-install-app.png" alt="Quét mã QR">
-            <label class="qr-label">{{'ScanQrInstallApp' | translate}}</label>
+        <!-- Mật khẩu -->
+        <div class="mb-3">
+          <div class="input-group input-custom">
+            <span class="input-group-text text-left-custom"><i class="fas fa-lock"></i></span>
+            <input class="form-control input-login-form" [type]="showPassword ? 'text' : 'password'" id="password"
+              [attr.placeholder]="'PassWord' | translate" [(ngModel)]="passWord">
+            <span class="input-group-text toggle-password" (click)="togglePassword()">
+              <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+            </span>
           </div>
-        </form>
+          <!-- <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+            class="text-danger">
+            {{'PassWordIsReqired' | translate}}
+          </div>
+          <div *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched"
+            class="text-danger">
+            {{ 'PassWordMaxLength' | translate }}
+          </div> -->
+        </div>
+
+        <!-- Ghi nhớ & Quên mật khẩu -->
+        <div class="check-box-remember-me d-flex justify-content-between align-items-center mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="rememberMe" [(ngModel)]="rememberMe">
+            <label class="form-check-label" for="rememberMe">{{'RememberMe'| translate}}</label>
+          </div>
+          <a href="#" class="text-decoration-none">{{'ForgotPassword' | translate}} ?</a>
+        </div>
+
+        <button class="btn btn-primary w-100 mb-3 btn-login" type="button" (click)="onSubmit()">
+          {{'SubmitLogin' | translate}}
+        </button>
+
+        <!-- Mã QR -->
+        <div class="qr-container d-flex flex-column align-items-center mt-2 pt-2">
+          <img class="qr-install-app" src="assets/qr-install-app.png" alt="Quét mã QR">
+          <label class="qr-label">{{'ScanQrInstallApp' | translate}}</label>
+        </div>
       </div>
     </div>
   </div>
