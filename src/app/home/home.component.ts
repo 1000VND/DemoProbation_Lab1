@@ -3,13 +3,11 @@ import { AppBaseModule } from '../app-base.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../services/account.service';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'home',
-  templateUrl: './home.component.remake.html',
-  styleUrls: ['./home.component.remake.scss'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
   imports: [AppBaseModule],
   standalone: true,
 })
@@ -40,19 +38,19 @@ export class HomeComponent implements OnInit {
       url: 'https://www.baexpress.io',
       img: 'https://taxi.binhanhcorp.com/PublicAll/2021/baexpress.jpg',
       title: 'GIẢI PHÁP ĐIỀU HÀNH VẬN TẢI TOÀN DIÊN',
-      shortContent: 'BA GPS ra mắt tính năng Tra cứu phương tiện giúp tài xế dễ dàng theo dõi thời gian lái xe, tra cứu phạt nguội ngay trên ứng dụng di động. Tìm hiểu ngay trong bài viết dưới đây!'
+      shortContent: 'BAExpress là giải pháp điều hành nghiệp vụ giao hàng chuyên nghiệp được BA GPS phát triển độc quyền, giúp hoàn thiện quy trình quản lý trong khâu vận hành giao hàng của mỗi doanh nghiệp.'
     },
     {
       url: 'https://bagps.vn/dau-ghi-camera-giam-sat-o-to-nghi-dinh-10-p47',
       img: 'https://taxi.binhanhcorp.com/PublicAll/2021/TetAmLich/chuc_mung_nam_moi.png',
       title: 'GIẢI PHÁP CAMERA GIÁM SÁT',
-      shortContent: 'BA GPS ra mắt tính năng Tra cứu phương tiện giúp tài xế dễ dàng theo dõi thời gian lái xe, tra cứu phạt nguội ngay trên ứng dụng di động. Tìm hiểu ngay trong bài viết dưới đây!'
+      shortContent: 'Thiết bị đầu ghi giám sát hành trình tích hợp Camera giám sát trên xe ô tô BA-SmartCamera (BA-CAMND10-1) đáp ứng Nghị đinh 10/2020/NĐ-CP, Nghị định 47/2022/NĐ-CP, hợp chuẩn TCVN 13396:2021, hợp chuẩn QCVN 31:2014/BGTVT, hợp quy QCVN 117:2018/BTTTT, hỗ trợ kết nối 2 camera dành cho doanh nghiệp vận tải có nhu cầu quản lý cơ bản.'
     },
     {
       url: 'https://bagps.vn/quy-dinh-lap-camera-giam-sat-theo-nghi-dinh-102020-thong-tu-122020-d938',
       img: 'https://taxi.binhanhcorp.com/PublicAll/2020/NghiDinh10/BANNER_1.jpg',
       title: 'THÔNG TIN QUY ĐỊNH LẮP CAMERA GIÁM SÁT',
-      shortContent: 'BA GPS ra mắt tính năng Tra cứu phương tiện giúp tài xế dễ dàng theo dõi thời gian lái xe, tra cứu phạt nguội ngay trên ứng dụng di động. Tìm hiểu ngay trong bài viết dưới đây!'
+      shortContent: 'Nghị định 10/2020/NĐ-CP ban hành ngày 17/1/2020 Quy định về kinh doanh và điều kiện kinh doanh vận tải bằng xe ô tô có nội dung Quy định lắp camera trên xe ô tô kinh doanh vận tải chi tiết tại Khoản 2 Điều 13 và Khoản 2 Điều 14 Nghị định số 10/2020/NĐ-CP:'
     }
   ]
 

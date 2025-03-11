@@ -1,123 +1,69 @@
-:host ::ng-deep {
-    #rememberMe.form-check-input:checked {
-        background-color: #44b5fe;
-        border: none;
-    }
+//////////////////////////////////////////// Slide ảnh ////////////////////////////////////////////
+.carousel-slide {
+    display: none;
 }
 
-p {
-    font-size: 0.85rem;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-span.input-group-text {
-    border: none;
-    background: transparent;
-}
-
-input.input-login-form {
-    border: none;
-    background: transparent;
-    box-shadow: none;
-    padding-left: 0;
-}
-
-// Logo & QR Code
-.logoba-login,
-.qr-install-app {
-    width: 160px;
-    height: auto;
-    object-fit: contain;
+.carousel-slide.image-slide-active {
     display: block;
-    margin: 0 auto;
-}
-
-.qr-install-app {
-    border: 1px solid #8f8f97;
-    width: 140px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-}
-
-.qr-label {
-    color: #8f8f97;
-}
-
-.text-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20%;
-}
-
-// Form đăng nhập
-.login-card {
-    width: 380px;
-    position: absolute;
-    right: 4%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-card-child {
-    height: 85%;
-    background: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 0 1rem 1rem 1rem;
-    border-radius: 20px;
-    width: 100%;
-}
-
-.text-left-custom {
-    width: 3rem;
-    justify-content: center;
-}
-
-// Input
-.input-custom {
-    height: 2.8rem;
-    border-radius: 1.5rem;
-    border: 1px solid #c0c2c5;
-}
-
-
-// Toggle password icon
-.toggle-password {
-    cursor: pointer;
-}
-
-// Carousel
-.carousel-container {
-    position: relative;
-    text-align: center;
-    width: 100%;
-    padding: 0;
 }
 
 .carousel-container img {
-    display: none;
-    width: 100%;
-    // Không bị méo
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-}
-
-.carousel-container img.image-active {
-    display: block;
-    width: 100%;
     height: 600px;
     object-fit: cover;
     object-position: center center;
 }
 
+.fade-custom {
+    animation-name: fade-custom;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade-custom {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+//////////////////////////////////////////// Content detail ////////////////////////////////////////////
+.banner-content {
+    bottom: 5%;
+    left: 2%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0;
+    border-radius: 10px;
+    color: white;
+    width: 65vw;
+}
+
+.carousel-popup {
+    height: 30px;
+}
+
+//////////////////////////////////////////// Nút chi tiết ////////////////////////////////////////////
+.carousel-button {
+    background: #8cd63f;
+    color: #0a1832;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    height: 2.3em;
+}
+
+//////////////////////////////////////////// Các chấm chuyển slide ////////////////////////////////////////////
 /* Container chứa các dots */
 .carousel-dot-container {
-    bottom: 20px;
-    gap: .5rem;
+    bottom: 8px;
+    gap: 10px;
 }
 
 /* Dot mặc định */
@@ -154,418 +100,126 @@ input.input-login-form {
     opacity: 0.6;
 }
 
-.fade-custom {
-    animation-name: fade-custom;
-    animation-duration: 1.5s;
+//////////////////////////////////////////// Phần Login ////////////////////////////////////////////
+.container-form-login {
+    height: 600px;
 }
 
-@keyframes fade-custom {
-    from {
-        opacity: 0.4;
-    }
-
-    to {
-        opacity: 1;
-    }
+.login-card {
+    width: 100%;
+    max-width: 360px;
 }
 
-// 
-.banner-content {
-    bottom: 10%;
-    left: 2%;
-    width: 55%;
+.login-card-child {
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 100%;
 }
 
-.carousel-content {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 0;
+.logoba-login {
+    width: 120px;
+    margin-bottom: 24px;
+}
+
+.form-control {
     border-radius: 10px;
-    color: white;
-    width: 100%;
-    min-height: 60px;
-    height: auto;
+    padding: 12px 16px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
 }
 
-.carousel-slide {
-    display: none;
-    width: 100%;
-    height: auto;
-    position: relative;
-}
-
-.carousel-slide.image-active {
-    display: block;
-}
-
-.btn-custom {
-    background: #8cd63f;
-    color: #0a1832;
-    font-size: 13.6px;
-    font-weight: bold;
-    border: none;
-    border-radius: 2em;
-    padding: 0.5em 1em;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    height: 2.3em;
-}
-
-.carousel-popup {
-    text-align: start;
-    margin-left: 1em;
-    height: 50%;
-    align-items: center;
-    display: flex;
-}
-
-/* Nút login */
-.btn-login {
-    border-radius: 2em;
-    background: linear-gradient(to right, #3293e9, #00c3fe);
-    color: white;
-    border: none;
+.input-custom {
     height: 2.8rem;
+    border-radius: 1.5rem;
+    border: 1px solid #c0c2c5;
 }
 
-
-@media (max-width: 1200px) {
-    .carousel-content {
-        left: 5%;
-        bottom: 5%;
-        width: 80%;
-    }
-
-    .carousel-title {
-        font-size: 1.5rem;
-        text-align: start;
-    }
-
-    .carousel-description {
-        font-size: 0.7rem;
-        text-align: start;
-    }
-
-    .carousel-popup {
-        text-align: start;
-        margin-left: 1em;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-
-    .carousel-button {
-        padding: 0;
-        font-size: 0.7rem;
-    }
+input.input-login-form {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 0;
+    height: 100%;
 }
 
-@media (min-width: 993px) and (max-width: 1199px) {
-    .banner-content {
-        width: 500px;
-    }
-
-    .carousel-content {
-        width: 100%;
-        height: auto;
-        left: 2%;
-        min-height: 40px;
-    }
-
-    .carousel-popup {
-        text-align: start;
-        margin-left: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .carousel-title {
-        font-size: 0.7rem;
-        text-align: start;
-        margin-top: 0;
-    }
-
-    .carousel-description {
-        font-size: 0.6rem;
-        text-align: start;
-    }
-
-    .carousel-button {
-        padding: 0;
-        font-size: 0.5rem;
-    }
-
-    .btn-custom {
-        font-size: 9.6px;
-    }
-
-    .login-card {
-        width: 320px;
-        right: 0%;
-        height: 515px;
-        display: flex;
-        align-items: center;
-        position: absolute;
-    }
-
-    .login-card-child {
-        height: 85%;
-        background: white;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 0 1rem 1rem 1rem;
-        border-radius: 20px;
-        width: 100%;
-    }
-
-    .logoba-login,
-    .qr-install-app {
-        width: 110px;
-    }
-
-    .qr-install-app {
-        border: 1px solid;
-    }
-
-    .input-custom {
-        height: 38px;
-    }
-
-    span.text-left-custom {
-        font-size: 14px;
-        height: 100%;
-        padding: .2rem 0;
-    }
-
-    .input-login-form {
-        height: 100%;
-        font-size: 14px;
-    }
-
-    .check-box-remember-me {
-        font-size: 14px;
-        align-items: flex-start !important;
-        height: 30px;
-        margin-bottom: .3em !important;
-    }
-
-    .btn-login {
-        font-size: 14px;
-        height: 36px;
-        margin-bottom: 30px !important;
-    }
-
-    .qr-container {
-        font-size: 14px;
-    }
-
-    .qr-install-app {
-        width: 70px;
-    }
-
-    .carousel-container img {
-        max-height: 520px;
-    }
+.text-left-custom {
+    height: 100%;
+    width: 3rem;
+    justify-content: center;
 }
+
+span.input-group-text {
+    border: none;
+    background: transparent;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+
+.btn-login {
+    background: linear-gradient(to right, #3293e9, #00c3fe);
+    border: none;
+    border-radius: 25px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.form-check-label,
+.forgot-password {
+    font-size: 14px;
+}
+
+.forgot-password {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.qr-section img {
+    width: 120px;
+}
+
+.qr-section p {
+    font-size: 14px;
+    color: #666;
+}
+
+//////////////////////////////////////////// Tắt pointer events để click vào ảnh ////////////////////////////////////////////
+.container-form-login {
+    pointer-events: none; 
+}
+
+.login-card {
+    pointer-events: auto; 
+}
+
+.container-form-login {
+    z-index: 2; 
+}
+.carousel-container {
+    z-index: 1; 
+}
+
+//////////////////////////////////////////// Responsive ////////////////////////////////////////////
 
 @media (max-width: 992px) {
     .banner-content {
-        width: 500px;
-    }
-
-    .carousel-content {
-        width: 100%;
-        height: auto;
-        left: 2%;
-        min-height: 40px;
-    }
-
-    .carousel-popup {
-        text-align: start;
-        margin-left: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .carousel-title {
-        font-size: 0.7rem;
-        text-align: start;
-        margin-top: 0;
-    }
-
-    .carousel-description {
-        font-size: 0.6rem;
-        text-align: start;
-    }
-
-    .carousel-button {
-        padding: 0;
-        font-size: 0.5rem;
-    }
-
-    .btn-custom {
-        font-size: 9.6px;
+        width: 85vw;
     }
 
     .carousel-container img {
-        max-height: 450px;
+        height: 690px;
     }
-
-    .login-card {
-        width: 260px;
-        right: 0%;
-        height: 450px;
-        display: flex;
-        align-items: center;
-        position: absolute;
-    }
-
-    .login-card-child {
-        height: 85%;
-        background: white;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 0 1rem 1rem 1rem;
-        border-radius: 20px;
-        width: 100%;
-    }
-
-    .logoba-login,
-    .qr-install-app {
-        width: 4rem;
-    }
-
-    .qr-install-app {
-        border: 1px solid;
-    }
-
-    .input-custom {
-        height: 2rem;
-    }
-
-    span.text-left-custom {
-        font-size: 0.6rem;
-        height: 100%;
-        padding: .2rem 0;
-    }
-
-    .input-login-form {
-        height: 100%;
-        font-size: 0.6rem;
-    }
-
-    .check-box-remember-me {
-        font-size: 9.6px;
-        align-items: flex-start !important;
-        height: 1rem;
-        margin-bottom: .3em !important;
-    }
-
-    .btn-login {
-        font-size: 9.6px;
-        height: 30px;
-        margin-bottom: 0.3em !important;
-    }
-
-    .qr-container {
-        font-size: 9.6px;
-    }
-
-    .qr-install-app {
-        width: 70px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    
-    .carousel-container img {
-        height: 630px;
-        max-height: 630px;
-    }
-
-    .carousel-container img.image-active{
-        height: 630px; 
-    }
-
-    .carousel-content {
-        text-align: center;
-        width: 100%;
-    }
-
-    .carousel-dot-container{
-        bottom: 15px;
-    }
-
-    .banner-content{
-        bottom: 7%;
-        width: 90%;
-        left: 5%;
-    }
-
-    .btn-custom {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        font-size: 8.8px;
-    }
-
-    // Giảm kích thước logo và QR trên mobile
-    .logoba-login,
-    .qr-install-app {
-        width: 8rem;
-    }
-
-    .qr-install-app {
-        border: 1px solid;
-    }
-
-    // Form đăng nhập
-    .login-card {
-        width: 100%;
-        height: 520px;
-        display: flex;
-        align-items: center;
-        position: absolute;
-        justify-content: center;
-    }
-
-    .login-card-child {
-        width: 350px;
-        height: 500px;
-    }
-
-    .text-center {
-        align-items: start;
-        height: 80px;
-    }
-
-    .input-custom {
-        height: 40px;
-    }
-
-    .input-login-form {
-        font-size: 16px;
-    }
-
-    span.text-left-custom {
-        font-size: 16px;
-    }
-
-    .check-box-remember-me {
-        font-size: 16px;
-        height: 30px;
-    }
-
-    .btn-login {
-        font-size: 16px;
-        height: 35px;
-    }
-
-    .qr-label {
-        font-size: 16px;
-    }
-
-    .qr-container {
-        padding-top: 50px !important;
-    }
-
 }

@@ -1,111 +1,131 @@
-<div class="row container-fluid w-100 m-0 p-0">
-  <!-- Phần carousel -->
-  <div *ngIf="images && images.length > 0" class="carousel-container">
-    <div *ngFor="let image of images; let i=index" class="carousel-slide"
-      [ngClass]="{'image-active': selectedIndex === i}">
-      <a [href]="image.url" target="_blank">
-        <img class="fade-custom" [ngClass]="{'image-active': selectedIndex === i}" [src]="image.img" alt="" />
-      </a>
-
-      <!-- Hiển thị tiêu đề và nội dung -->
-      <div class="banner-content position-absolute ps-0 pe-0 w-55">
-        <div class="row carousel-content align-items-center">
-          <div class="col-10 pe-0">
-            <div class="carousel-popup col-md-12">
-              <h6 class="carousel-title" style="margin-bottom: 0;">{{ image.title }}</h6>
-            </div>
-            <div class="carousel-popup col-md-12">
-              <p class="carousel-description text-truncate">{{ image.shortContent }}
-              </p>
-            </div>
-          </div>
-          <div class="col-2 d-flex justify-content-center justify-content-center ps-0 pe-0">
-            <a [href]="image.url" target="_blank" class="carousel-button">
-              <button class="btn-custom">
-                {{'Detail' | translate}} <i class="fa-solid fa-arrow-right"></i>
-              </button>
+<div class="row container-fluid m-0 p-0">
+    <div *ngIf="images && images.length > 0" class="col-12 position-relative p-0 carousel-container">
+        <div 
+            *ngFor="let image of images; let i=index" 
+            class="col-12 carousel-slide position-relative"
+            [ngClass]="{'image-slide-active': selectedIndex === i}">
+            <a [href]="image.url" target="_blank">
+                <img class="fade-custom"
+                    [ngClass]="{'img-fluid d-block mx-auto w-100 object-fit-cover': selectedIndex === i}"
+                    [src]="image.img" alt="" />
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="carousel-dot-container position-absolute d-flex justify-content-center w-100">
-      <span *ngFor="let dot of images;let i=index" class="dot" [ngClass]="{'active-dot': selectedIndex === i}"
-        (click)="selectImage(i)">
-      </span>
-    </div>
-  </div>
+            <!-- Hiển thị tiêu đề và nội dung -->
+            <div class="row banner-content position-absolute ps-0 pe-0">
+                <div class="col-md-10  col-8 pe-0">
+                    <div class="row">
+                        <div class="carousel-popup col-md-12 d-flex align-items-center">
+                            <h6 class="mb-0 text-truncate">{{ image.title }}</h6>
+                        </div>
+                        <div class="carousel-popup col-md-12 d-flex align-items-center">
+                            <p class="mb-0 text-truncate">{{ image.shortContent }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Phần form đăng nhập -->
-  <div class="login-card">
-    <div class="login-card-child">
-      <div class="text-center">
-        <img class="logoba-login" src="assets/logo-ba.png" alt="Logo BAGPS">
-      </div>
-      <div class="card-body" style="height: 80%;">
-        <!-- Tên đăng nhập -->
-        <div class="mb-3">
-          <div class="input-group input-custom">
-            <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
-            <input class="form-control input-login-form" type="text" id="username"
-              style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;"
-              [attr.placeholder]="'UserName' | translate" [(ngModel)]="userName">
-          </div>
-          <!-- <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
-            class="text-danger">
-            {{'UserNameIsReqired' | translate}}
-          </div>
-          <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched"
-            class="text-danger">
-            {{ 'UserNameInvalid' | translate }}
-          </div>
-          <div
-            *ngIf="(loginForm.get('username')?.hasError('maxlength') && (loginForm.get('username')?.touched || loginForm.get('username')?.dirty))"
-            class="text-danger">
-            {{ 'UserNameMaxLength' | translate }}
-          </div> -->
+                <div class="col-md-2 col-4 d-flex align-items-center justify-content-center ps-0 pe-0">
+                    <a [href]="image.url" target="_blank">
+                        <button class="carousel-button">
+                            {{'Detail' | translate}} <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <!-- Mật khẩu -->
-        <div class="mb-3">
-          <div class="input-group input-custom">
-            <span class="input-group-text text-left-custom"><i class="fas fa-lock"></i></span>
-            <input class="form-control input-login-form" [type]="showPassword ? 'text' : 'password'" id="password"
-              [attr.placeholder]="'PassWord' | translate" [(ngModel)]="passWord">
-            <span class="input-group-text toggle-password" (click)="togglePassword()">
-              <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+        <div class="carousel-dot-container position-absolute d-flex justify-content-center w-100">
+            <span 
+                *ngFor="let dot of images;let i=index" 
+                class="dot" 
+                [ngClass]="{'active-dot': selectedIndex === i}"
+                (click)="selectImage(i)">
             </span>
-          </div>
-          <!-- <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
-            class="text-danger">
-            {{'PassWordIsReqired' | translate}}
-          </div>
-          <div *ngIf="loginForm.get('password')?.hasError('maxLength') && loginForm.get('password')?.touched"
-            class="text-danger">
-            {{ 'PassWordMaxLength' | translate }}
-          </div> -->
         </div>
-
-        <!-- Ghi nhớ & Quên mật khẩu -->
-        <div class="check-box-remember-me d-flex justify-content-between align-items-center mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="rememberMe" [(ngModel)]="rememberMe">
-            <label class="form-check-label" for="rememberMe">{{'RememberMe'| translate}}</label>
-          </div>
-          <a href="#" class="text-decoration-none">{{'ForgotPassword' | translate}} ?</a>
-        </div>
-
-        <button class="btn btn-primary w-100 mb-3 btn-login" type="button" (click)="onSubmit()">
-          {{'SubmitLogin' | translate}}
-        </button>
-
-        <!-- Mã QR -->
-        <div class="qr-container d-flex flex-column align-items-center mt-2 pt-2">
-          <img class="qr-install-app" src="assets/qr-install-app.png" alt="Quét mã QR">
-          <label class="qr-label">{{'ScanQrInstallApp' | translate}}</label>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <!-- Phần form đăng nhập -->
+    <div class="container-form-login container-fluid position-absolute">
+        <div class="row justify-content-end h-100">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="login-card">
+                    <div class="login-card-child text-center p-3">
+                        <!-- Logo -->
+                        <img class="logoba-login mb-4" src="assets/logo-ba.png" alt="Logo BAGPS">
+
+                        <!-- Form -->
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <!-- User Name -->
+                            <div class="mb-3">
+                                <div class="input-group input-custom">
+                                    <span class="input-group-text text-left-custom"><i class="fas fa-user"></i></span>
+                                    <input 
+                                        class="form-control input-login-form" 
+                                        maxlength="50"
+                                        type="text" id="username"
+                                        style="border-top-right-radius: 1.5rem;border-bottom-right-radius: 1.5rem;"
+                                        [attr.placeholder]="'UserName' | translate" formControlName="username"
+                                        >
+                                </div>
+                                <div 
+                                    *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
+                                    class="text-danger text-start">
+                                    {{'UserNameIsReqired' | translate}}
+                                </div>
+                                <div 
+                                    *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched"
+                                    class="text-danger text-start">
+                                    {{ 'UserNameInvalid' | translate }}
+                                </div>
+                            </div>
+
+                            <!-- Mật khẩu -->
+                            <div class="mb-3">
+                                <div class="input-group input-custom">
+                                    <span class="input-group-text text-left-custom"><i class="fas fa-lock"></i></span>
+                                    <input 
+                                        class="form-control input-login-form"
+                                        maxlength="200"
+                                        [type]="showPassword ? 'text' : 'password'" 
+                                        id="password"
+                                        [attr.placeholder]="'PassWord' | translate" formControlName="password"
+                                        >
+                                    <span class="input-group-text toggle-password" (click)="togglePassword()">
+                                        <i class="fas" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+                                    </span>
+                                </div>
+                                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+                                    class="text-danger text-start">
+                                    {{'PassWordIsReqired' | translate}}
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="form-check">
+                                    <input 
+                                        class="form-check-input" 
+                                        type="checkbox" 
+                                        id="rememberMe"
+                                        formControlName="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        {{'RememberMe'| translate}}
+                                    </label>
+                                </div>
+                                <a href="#" class="forgot-password">{{'ForgotPassword' | translate}}?</a>
+                            </div>
+                            <button type="submit" class="btn btn-login w-100 mb-4" [disabled]="loginForm.invalid">
+                                {{'SubmitLogin' | translate}}
+                            </button>
+                        </form>
+
+                        <!-- QR Code -->
+                        <div class="qr-section">
+                            <img src="assets/qr-install-app.png" alt="QR Code" class="mb-2">
+                            <p class="text-muted small">{{'ScanQrInstallApp' | translate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

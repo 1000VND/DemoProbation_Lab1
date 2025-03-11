@@ -30,10 +30,19 @@
         </button>
       </a>
 
-      <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <img class="icon-dropdown-menu me-2" [src]="selectedLanguage.icon" [alt]="selectedLanguage.name | translate">
-        <span>{{ selectedLanguage.name | translate }}</span>
+      <button 
+        class="btn dropdown-toggle d-flex align-items-center" 
+        type="button" 
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown" 
+        aria-expanded="false">
+        <img 
+          class="icon-dropdown-menu me-2" 
+          [src]="selectedLanguage.icon" 
+          [alt]="selectedLanguage.name | translate">
+        <span>
+          {{ selectedLanguage.name | translate }}
+        </span>
       </button>
 
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -57,16 +66,30 @@
   <div class="d-flex align-items-center justify-content-between h-100">
     <!-- Language Dropdown -->
     <div class="grid-item dropdown language-dropdown-drawer">
-      <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButtonMobile"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <img class="icon-dropdown-menu me-2" [src]="selectedLanguage.icon" [alt]="selectedLanguage.name | translate">
-        <span>{{ selectedLanguage.name | translate }}</span>
+      <button 
+        class="btn dropdown-toggle d-flex align-items-center" 
+        type="button" 
+        id="dropdownMenuButtonMobile"
+        data-bs-toggle="dropdown" 
+        aria-expanded="false">
+        <img 
+          class="icon-dropdown-menu me-2" 
+          [src]="selectedLanguage.icon" 
+          [alt]="selectedLanguage.name | translate">
+        <span>
+          {{ selectedLanguage.name | translate }}
+        </span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonMobile">
         <li *ngFor="let language of languages">
           <a class="dropdown-item d-flex align-items-center" (click)="changeLanguage(language)">
-            <img class="icon-dropdown-item me-2" [src]="language.icon" [alt]="language.name | translate">
-            <span>{{ language.name | translate }}</span>
+            <img 
+              class="icon-dropdown-item me-2" 
+              [src]="language.icon" 
+              [alt]="language.name | translate">
+            <span>
+              {{ language.name | translate }}
+            </span>
           </a>
         </li>
       </ul>
