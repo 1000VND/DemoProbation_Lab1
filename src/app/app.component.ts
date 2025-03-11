@@ -33,7 +33,7 @@ export class AppComponent {
     const user = this.accountService.getCurrentUser();
     if (user) {
       this.accountService.setCurrentUser(user);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/personnel-management']);
     }
   }
 
