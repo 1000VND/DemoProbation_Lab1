@@ -13,7 +13,7 @@
 }
 
 .carousel-container img {
-    height: 600px;
+    height: 685px;
     object-fit: cover;
     object-position: center center;
 }
@@ -107,7 +107,7 @@
 
 //////////////////////////////////////////// Phần Login ////////////////////////////////////////////
 .container-form-login {
-    height: 600px;
+    height: 685px;
 }
 
 .login-card {
@@ -163,6 +163,11 @@ span.input-group-text {
     cursor: pointer;
 }
 
+.form-check-input:checked {
+    background-color: rgba(2, 192, 253, 255);
+    border-color: rgba(2, 192, 253, 255);
+}
+
 .btn-login {
     background: linear-gradient(to right, #3293e9, #00c3fe);
     border: none;
@@ -193,11 +198,12 @@ span.input-group-text {
 
 .qr-section img {
     width: 120px;
+    border: 1px solid #8f8f97;
 }
 
 .qr-section p {
     font-size: 14px;
-    color: #666;
+    color: #8f8f97;
 }
 
 //////////////////////////////////////////// Tắt pointer events để click vào ảnh ////////////////////////////////////////////
@@ -225,6 +231,6 @@ span.input-group-text {
     }
 
     .carousel-container img {
-        height: 690px;
+        height: 760px;
     }
 }

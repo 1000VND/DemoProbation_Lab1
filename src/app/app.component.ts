@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './router/header/header.component';
+import { FooterComponent } from './router/footer/footer.component';
 import { AppBaseModule } from './app-base.module';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from './services/account.service';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppBaseModule } from '../app-base.module';
+import { AppBaseModule } from '../../app-base.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AccountService } from '../services/account.service';
+import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
 
     this.userService.login(username, password, rememberMe).subscribe(success => {
       if (success) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/personnel-management']);
       }
     })
   }

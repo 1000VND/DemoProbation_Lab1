@@ -33,7 +33,7 @@ export class AccountService {
              * Kiểm tra xem người dùng đã được kích hoạt tài khoản hay chưa
              */
             if (!user.isActive) {
-                this.toastr.warning(this.translate.instant('AccountNotActive'));
+                this.toastr.warning(this.translate.instant('CanNotLogInRightNow'));
                 return of(false);
             }
 

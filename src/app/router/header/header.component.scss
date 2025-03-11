@@ -137,15 +137,17 @@ button#dropdownMenuButtonMobile {
 .hotline-btn,
 .hotline-btn-drawer {
   border-radius: 2rem;
-  height: 2.5rem;
+  height: 32px;
   display: flex;
   align-items: center;
   color: #44b5fe;
   border-color: #44b5fe;
 }
 
-.hotline-btn-drawer {
-  margin-top: 2rem;
+.hotline-btn:hover {
+  background-color: #44b5fe;
+  color: white;
+  border-color: #44b5fe;
 }
 
 /* Media Queries */
