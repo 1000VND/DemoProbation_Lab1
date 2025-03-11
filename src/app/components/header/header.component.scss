@@ -150,6 +150,11 @@ button#dropdownMenuButtonMobile {
   border-color: #44b5fe;
 }
 
+.dropdown-toggle {
+  color: #1660a0;
+  font-weight: 500;
+}
+
 /* Media Queries */
 @media (min-width: 769px) and (max-width: 1320px) {
   .grid-item.dropdown {
