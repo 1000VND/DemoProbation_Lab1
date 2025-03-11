@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.autoSlideImage();
+    // this.autoSlideImage();
   }
 
   /**
@@ -112,5 +112,14 @@ export class HomeComponent implements OnInit {
         this.selectedIndex++;
       }
     }, this.slideInterval);
+  }
+
+  cutText(text: string, char: number = 356) {
+
+    if (text && text.length > char) {
+      return text.substring(0, char) + '...';
+    }
+
+    return text;
   }
 }
