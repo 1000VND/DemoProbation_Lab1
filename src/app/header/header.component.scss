@@ -154,25 +154,32 @@ button#dropdownMenuButtonMobile {
     justify-content: space-between;
     width: 100px;
   }
+
   .menu {
     display: block;
     width: 300px;
   }
+
   .overlay {
     display: block;
   }
 }
 
 @media (max-width: 1788px) {
-  .dropdown-toggle > span {
+  .dropdown-toggle>span {
     display: none;
   }
 }
 
 @media (max-width: 1399px) {
+  
+}
+
+@media (max-width: 991px) {
   .grid-container {
     display: none;
   }
+
   .menu-btn-1 {
     display: block;
   }
@@ -183,15 +190,18 @@ button#dropdownMenuButtonMobile {
     padding: 0 10px;
     height: 62.27px;
   }
+
   .menu {
     display: block;
     width: 50%;
   }
+
   .overlay {
     display: block;
   }
-  .hotline-btn > span,
-  .dropdown-toggle > span {
+
+  .hotline-btn>span,
+  .dropdown-toggle>span {
     display: block;
   }
 }

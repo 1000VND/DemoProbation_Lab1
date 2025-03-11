@@ -197,6 +197,21 @@ span.input-group-text {
     color: #666;
 }
 
+.container-form-login {
+    pointer-events: none; /* Tắt sự kiện click trên toàn bộ container */
+}
+
+.login-card {
+    pointer-events: auto; /* Chỉ bật sự kiện click trên phần login-card */
+}
+
+.container-form-login {
+    z-index: 10; /* Giá trị cao hơn carousel */
+}
+.carousel-container {
+    z-index: 1; /* Giá trị thấp hơn form */
+}
+
 //////////////////////////////////////////// Responsive ////////////////////////////////////////////
 
 @media (max-width: 992px) {
