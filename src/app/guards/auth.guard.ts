@@ -17,11 +17,11 @@ export class AuthGuard implements CanActivate {
      * @returns activate 
      */
     canActivate(): Observable<boolean> {
-        return this.accountService.currentUserOfLab1$.pipe(
+        return this.accountService.currentUserBaGPS$.pipe(
             map(user => {
                 if (user) return true;
                 /**
-                 * Nếu currentUserOfLab1$ chưa có dữ liệu, thử lấy từ localStorage
+                 * Nếu currentUserBaGPS$ chưa có dữ liệu, thử lấy từ localStorage
                  */
                 const localUser = this.accountService.getCurrentUser();
 

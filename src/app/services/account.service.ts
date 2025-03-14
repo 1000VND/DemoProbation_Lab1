@@ -12,7 +12,7 @@ import { ToastrService } from "ngx-toastr";
 
 export class AccountService {
     private currentUserSource = new BehaviorSubject<User | null>(null);
-    currentUserOfLab1$ = this.currentUserSource.asObservable();
+    currentUserBaGPS$ = this.currentUserSource.asObservable();
 
     constructor(
         private router: Router,
@@ -44,14 +44,16 @@ export class AccountService {
                 isActive: user.isActive
             };
 
+            document.cookie = `currentUserBaGPS=${encodeURIComponent(JSON.stringify(userWithoutPassword))}; path=/; Secure`;
             /**
              * Lưu phiên đăng nhập khi tích Ghi nhớ mật khẩu
              */
             if (rememberMe) {
-                localStorage.setItem('currentUserOfLab1', JSON.stringify(userWithoutPassword));
+                localStorage.setItem('currentUserBaGPS', JSON.stringify(userWithoutPassword));
             }
 
             this.setCurrentUser(userWithoutPassword);
+            this.router.navigate(['/personnel-management']);
             return of(true);
         } else {
             this.toastr.warning(this.translate.instant('IncorrectUserNamePassword'));
@@ -64,7 +66,8 @@ export class AccountService {
      * Xóa dữ liệu của phiên làm việc
      */
     logout() {
-        localStorage.removeItem('currentUserOfLab1');
+        document.cookie = 'currentUserBaGPS=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        localStorage.removeItem('currentUserBaGPS');
         this.currentUserSource.next(null);
         this.router.navigate(['/login']);
     }
@@ -80,8 +83,9 @@ export class AccountService {
      * Lấy dữ liệu User
      */
     getCurrentUser(): User | null {
-        const user = localStorage.getItem('currentUserOfLab1');
-        return user ? JSON.parse(user) : null;
+        const userCookie = this.getCookie('currentUserBaGPS');
+        const user = localStorage.getItem('currentUserBaGPS');
+        return userCookie ? JSON.parse(userCookie) : (user ? JSON.parse(user) : null);
     }
 
     /**
@@ -92,6 +96,11 @@ export class AccountService {
         if (user) {
             this.setCurrentUser(user);
         }
+    }
+
+    private getCookie(name: string): string | null {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? decodeURIComponent(match[2]) : null;
     }
 
 }
